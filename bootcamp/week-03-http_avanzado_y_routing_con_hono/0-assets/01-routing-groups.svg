@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 460" width="820" height="460">
+  <!-- Fondo principal -->
+  <rect width="820" height="460" fill="#1a1a2e"/>
+
+  <!-- Título -->
+  <rect x="0" y="0" width="820" height="48" fill="#16213e"/>
+  <text x="410" y="30" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF" text-anchor="middle">Routing con Hono — Paths, Params y Grupos de Rutas</text>
+  <text x="410" y="43" font-family="system-ui, sans-serif" font-size="11" fill="#A0AEC0" text-anchor="middle">Semana 03 · HTTP Avanzado y Routing con Hono</text>
+
+  <!-- ============================== -->
+  <!-- COLUMNA IZQUIERDA: Tipos de Match -->
+  <!-- ============================== -->
+  <text x="30" y="74" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#A0AEC0">TIPOS DE MATCH</text>
+
+  <!-- Card 1: Static route -->
+  <rect x="20" y="82" width="360" height="68" rx="8" fill="#16213e" stroke="#2D3748" stroke-width="1"/>
+  <rect x="20" y="82" width="4" height="68" rx="2" fill="#38A169"/>
+  <text x="36" y="101" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#38A169">Ruta estática</text>
+  <rect x="36" y="108" width="200" height="20" rx="4" fill="#1a1a2e"/>
+  <text x="46" y="122" font-family="system-ui, sans-serif" font-size="11" fill="#FFFFFF" font-family="monospace">GET /products</text>
+  <text x="250" y="122" font-family="system-ui, sans-serif" font-size="18" fill="#F38020">→</text>
+  <text x="270" y="122" font-family="system-ui, sans-serif" font-size="11" fill="#A0AEC0">c.json({ products })</text>
+  <text x="36" y="143" font-family="system-ui, sans-serif" font-size="10" fill="#A0AEC0">Match exacto — sin variables</text>
+
+  <!-- Card 2: Path params -->
+  <rect x="20" y="158" width="360" height="68" rx="8" fill="#16213e" stroke="#2D3748" stroke-width="1"/>
+  <rect x="20" y="158" width="4" height="68" rx="2" fill="#F38020"/>
+  <text x="36" y="177" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#F38020">Path params</text>
+  <rect x="36" y="184" width="200" height="20" rx="4" fill="#1a1a2e"/>
+  <text x="46" y="198" font-family="system-ui, sans-serif" font-size="11" fill="#FFFFFF">GET /products/:id</text>
+  <text x="250" y="198" font-family="system-ui, sans-serif" font-size="18" fill="#F38020">→</text>
+  <text x="270" y="198" font-family="system-ui, sans-serif" font-size="11" fill="#A0AEC0">c.req.param("id")</text>
+  <text x="36" y="219" font-family="system-ui, sans-serif" font-size="10" fill="#A0AEC0">:id = segmento dinámico — siempre string</text>
+
+  <!-- Card 3: Query params -->
+  <rect x="20" y="234" width="360" height="68" rx="8" fill="#16213e" stroke="#2D3748" stroke-width="1"/>
+  <rect x="20" y="234" width="4" height="68" rx="2" fill="#9F7AEA"/>
+  <text x="36" y="253" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#9F7AEA">Query params</text>
+  <rect x="36" y="260" width="200" height="20" rx="4" fill="#1a1a2e"/>
+  <text x="46" y="274" font-family="system-ui, sans-serif" font-size="11" fill="#FFFFFF">GET /products?limit=10</text>
+  <text x="250" y="274" font-family="system-ui, sans-serif" font-size="18" fill="#F38020">→</text>
+  <text x="270" y="274" font-family="system-ui, sans-serif" font-size="11" fill="#A0AEC0">c.req.query("limit")</text>
+  <text x="36" y="295" font-family="system-ui, sans-serif" font-size="10" fill="#A0AEC0">?key=value — opcional, siempre string</text>
+
+  <!-- Card 4: Wildcard -->
+  <rect x="20" y="310" width="360" height="68" rx="8" fill="#16213e" stroke="#2D3748" stroke-width="1"/>
+  <rect x="20" y="310" width="4" height="68" rx="2" fill="#ED8936"/>
+  <text x="36" y="329" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#ED8936">Wildcard</text>
+  <rect x="36" y="336" width="200" height="20" rx="4" fill="#1a1a2e"/>
+  <text x="46" y="350" font-family="system-ui, sans-serif" font-size="11" fill="#FFFFFF">GET /files/*</text>
+  <text x="250" y="350" font-family="system-ui, sans-serif" font-size="18" fill="#F38020">→</text>
+  <text x="270" y="350" font-family="system-ui, sans-serif" font-size="11" fill="#A0AEC0">c.req.param("*")</text>
+  <text x="36" y="371" font-family="system-ui, sans-serif" font-size="10" fill="#A0AEC0">* coincide con cualquier ruta posterior</text>
+
+  <!-- Separador vertical -->
+  <line x1="400" y1="58" x2="400" y2="430" stroke="#2D3748" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- ============================== -->
+  <!-- COLUMNA DERECHA: app.route() -->
+  <!-- ============================== -->
+  <text x="420" y="74" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#A0AEC0">COMPOSICIÓN CON app.route()</text>
+
+  <!-- Main App box -->
+  <rect x="420" y="82" width="380" height="56" rx="8" fill="#F38020" fill-opacity="0.15" stroke="#F38020" stroke-width="1.5"/>
+  <text x="610" y="107" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#F38020" text-anchor="middle">Hono App  (src/index.ts)</text>
+  <text x="610" y="125" font-family="system-ui, sans-serif" font-size="10" fill="#A0AEC0" text-anchor="middle">app.use("*", loggingMiddleware)</text>
+
+  <!-- Arrows down from main app -->
+  <line x1="530" y1="138" x2="530" y2="158" stroke="#F38020" stroke-width="1.5"/>
+  <polygon points="530,162 526,154 534,154" fill="#F38020"/>
+  <line x1="690" y1="138" x2="690" y2="158" stroke="#F38020" stroke-width="1.5"/>
+  <polygon points="690,162 686,154 694,154" fill="#F38020"/>
+
+  <!-- productsRouter card -->
+  <rect x="420" y="162" width="220" height="110" rx="8" fill="#16213e" stroke="#003682" stroke-width="1.5"/>
+  <rect x="420" y="162" width="220" height="28" rx="8" fill="#003682" fill-opacity="0.6"/>
+  <rect x="420" y="178" width="220" height="12" fill="#003682" fill-opacity="0.6"/>
+  <text x="530" y="181" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">productsRouter</text>
+  <text x="530" y="194" font-family="system-ui, sans-serif" font-size="10" fill="#A0AEC0" text-anchor="middle">app.route("/products", ...)</text>
+  <text x="435" y="213" font-family="system-ui, sans-serif" font-size="10" fill="#38A169">GET  /</text>
+  <text x="480" y="213" font-family="system-ui, sans-serif" font-size="10" fill="#A0AEC0">→ lista todos</text>
+  <text x="435" y="229" font-family="system-ui, sans-serif" font-size="10" fill="#38A169">GET  /:id</text>
+  <text x="480" y="229" font-family="system-ui, sans-serif" font-size="10" fill="#A0AEC0">→ uno por id</text>
+  <text x="435" y="245" font-family="system-ui, sans-serif" font-size="10" fill="#63B3ED">POST /</text>
+  <text x="480" y="245" font-family="system-ui, sans-serif" font-size="10" fill="#A0AEC0">→ crear nuevo</text>
+  <text x="435" y="261" font-family="system-ui, sans-serif" font-size="10" fill="#FC8181">DEL  /:id</text>
+  <text x="480" y="261" font-family="system-ui, sans-serif" font-size="10" fill="#A0AEC0">→ eliminar</text>
+
+  <!-- usersRouter card -->
+  <rect x="652" y="162" width="148" height="110" rx="8" fill="#16213e" stroke="#003682" stroke-width="1.5"/>
+  <rect x="652" y="162" width="148" height="28" rx="8" fill="#003682" fill-opacity="0.6"/>
+  <rect x="652" y="178" width="148" height="12" fill="#003682" fill-opacity="0.6"/>
+  <text x="726" y="181" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">usersRouter</text>
+  <text x="726" y="194" font-family="system-ui, sans-serif" font-size="10" fill="#A0AEC0" text-anchor="middle">app.route("/users", ...)</text>
+  <text x="667" y="213" font-family="system-ui, sans-serif" font-size="10" fill="#38A169">GET  /</text>
+  <text x="700" y="213" font-family="system-ui, sans-serif" font-size="10" fill="#A0AEC0">→ lista</text>
+  <text x="667" y="229" font-family="system-ui, sans-serif" font-size="10" fill="#38A169">GET  /:id</text>
+  <text x="700" y="229" font-family="system-ui, sans-serif" font-size="10" fill="#A0AEC0">→ perfil</text>
+  <text x="667" y="245" font-family="system-ui, sans-serif" font-size="10" fill="#63B3ED">POST /</text>
+  <text x="700" y="245" font-family="system-ui, sans-serif" font-size="10" fill="#A0AEC0">→ crear</text>
+
+  <!-- Middleware label -->
+  <rect x="420" y="286" width="380" height="48" rx="8" fill="#16213e" stroke="#2D3748" stroke-width="1"/>
+  <text x="610" y="306" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#FFFFFF" text-anchor="middle">app.use("/admin/*", authMiddleware)</text>
+  <text x="610" y="322" font-family="system-ui, sans-serif" font-size="10" fill="#A0AEC0" text-anchor="middle">El middleware se aplica solo a las rutas que empiezan con /admin/</text>
+
+  <!-- ============================== -->
+  <!-- BARRA INFERIOR: flujo de request -->
+  <!-- ============================== -->
+  <rect x="0" y="398" width="820" height="62" fill="#16213e"/>
+  <text x="30" y="418" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#A0AEC0">FLUJO DE UN REQUEST</text>
+
+  <!-- Boxes -->
+  <rect x="22" y="426" width="88" height="26" rx="5" fill="#2D3748"/>
+  <text x="66" y="443" font-family="system-ui, sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">HTTP Request</text>
+
+  <text x="118" y="443" font-family="system-ui, sans-serif" font-size="14" fill="#F38020">→</text>
+
+  <rect x="130" y="426" width="100" height="26" rx="5" fill="#F38020" fill-opacity="0.2" stroke="#F38020" stroke-width="1"/>
+  <text x="180" y="443" font-family="system-ui, sans-serif" font-size="10" fill="#F38020" text-anchor="middle">Hono Router</text>
+
+  <text x="238" y="443" font-family="system-ui, sans-serif" font-size="14" fill="#F38020">→</text>
+
+  <rect x="250" y="426" width="110" height="26" rx="5" fill="#9F7AEA" fill-opacity="0.2" stroke="#9F7AEA" stroke-width="1"/>
+  <text x="305" y="443" font-family="system-ui, sans-serif" font-size="10" fill="#9F7AEA" text-anchor="middle">Middleware (use)</text>
+
+  <text x="368" y="443" font-family="system-ui, sans-serif" font-size="14" fill="#F38020">→</text>
+
+  <rect x="380" y="426" width="110" height="26" rx="5" fill="#003682" fill-opacity="0.4" stroke="#003682" stroke-width="1"/>
+  <text x="435" y="443" font-family="system-ui, sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">Route Handler</text>
+
+  <text x="498" y="443" font-family="system-ui, sans-serif" font-size="14" fill="#F38020">→</text>
+
+  <rect x="510" y="426" width="90" height="26" rx="5" fill="#38A169" fill-opacity="0.2" stroke="#38A169" stroke-width="1"/>
+  <text x="555" y="443" font-family="system-ui, sans-serif" font-size="10" fill="#38A169" text-anchor="middle">Response</text>
+
+  <text x="612" y="443" font-family="system-ui, sans-serif" font-size="10" fill="#A0AEC0">  c.req.param() / c.req.query() / c.req.valid("json")</text>
+</svg>
