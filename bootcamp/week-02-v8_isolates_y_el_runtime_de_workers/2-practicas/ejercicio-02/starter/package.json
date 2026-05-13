@@ -1,0 +1,17 @@
+{
+  "name": "ejercicio-02-nodejs-compat",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "cf-typegen": "wrangler types"
+  },
+  "dependencies": {
+    "hono": "4.12.18"
+  },
+  "devDependencies": {
+    "typescript": "6.0.3",
+    "wrangler": "4.90.1",
+    "@cloudflare/workers-types": "4.20260511.1"
+  }
+}

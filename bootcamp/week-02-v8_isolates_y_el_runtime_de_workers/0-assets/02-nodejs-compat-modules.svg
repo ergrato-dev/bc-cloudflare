@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 400" width="820" height="400" font-family="system-ui, -apple-system, sans-serif">
+  <!-- Fondo -->
+  <rect width="820" height="400" fill="#1a1a2e"/>
+
+  <!-- Título -->
+  <text x="410" y="32" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="700">nodejs_compat_v2 — Módulos disponibles</text>
+
+  <!-- ── NÚCLEO Workers Runtime ── -->
+  <rect x="300" y="52" width="220" height="54" rx="10" fill="#F38020"/>
+  <text x="410" y="76" text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="700">Workers Runtime (V8)</text>
+  <text x="410" y="94" text-anchor="middle" fill="#FFFFFF" font-size="11">nodejs_compat_v2 activado</text>
+
+  <!-- ── GRID módulos DISPONIBLES ── -->
+  <!-- Fila 1 -->
+  <rect x="20" y="130" width="100" height="38" rx="6" fill="#16213e" stroke="#48BB78" stroke-width="1.5"/>
+  <text x="70" y="146" text-anchor="middle" fill="#48BB78" font-size="10">✓</text>
+  <text x="70" y="161" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="600">buffer</text>
+
+  <rect x="133" y="130" width="100" height="38" rx="6" fill="#16213e" stroke="#48BB78" stroke-width="1.5"/>
+  <text x="183" y="146" text-anchor="middle" fill="#48BB78" font-size="10">✓</text>
+  <text x="183" y="161" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="600">events</text>
+
+  <rect x="246" y="130" width="100" height="38" rx="6" fill="#16213e" stroke="#48BB78" stroke-width="1.5"/>
+  <text x="296" y="146" text-anchor="middle" fill="#48BB78" font-size="10">✓</text>
+  <text x="296" y="161" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="600">stream</text>
+
+  <rect x="359" y="130" width="100" height="38" rx="6" fill="#16213e" stroke="#48BB78" stroke-width="1.5"/>
+  <text x="409" y="146" text-anchor="middle" fill="#48BB78" font-size="10">✓</text>
+  <text x="409" y="161" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="600">crypto</text>
+
+  <rect x="472" y="130" width="100" height="38" rx="6" fill="#16213e" stroke="#48BB78" stroke-width="1.5"/>
+  <text x="522" y="146" text-anchor="middle" fill="#48BB78" font-size="10">✓</text>
+  <text x="522" y="161" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="600">path</text>
+
+  <rect x="585" y="130" width="100" height="38" rx="6" fill="#16213e" stroke="#48BB78" stroke-width="1.5"/>
+  <text x="635" y="146" text-anchor="middle" fill="#48BB78" font-size="10">✓</text>
+  <text x="635" y="161" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="600">url</text>
+
+  <rect x="698" y="130" width="102" height="38" rx="6" fill="#16213e" stroke="#48BB78" stroke-width="1.5"/>
+  <text x="749" y="146" text-anchor="middle" fill="#48BB78" font-size="10">✓</text>
+  <text x="749" y="161" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="600">assert</text>
+
+  <!-- Fila 2 -->
+  <rect x="76" y="182" width="130" height="38" rx="6" fill="#16213e" stroke="#48BB78" stroke-width="1.5"/>
+  <text x="141" y="198" text-anchor="middle" fill="#48BB78" font-size="10">✓</text>
+  <text x="141" y="213" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="600">querystring</text>
+
+  <rect x="220" y="182" width="140" height="38" rx="6" fill="#16213e" stroke="#48BB78" stroke-width="1.5"/>
+  <text x="290" y="198" text-anchor="middle" fill="#48BB78" font-size="10">✓</text>
+  <text x="290" y="213" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="600">string_decoder</text>
+
+  <rect x="374" y="182" width="100" height="38" rx="6" fill="#16213e" stroke="#48BB78" stroke-width="1.5"/>
+  <text x="424" y="198" text-anchor="middle" fill="#48BB78" font-size="10">✓</text>
+  <text x="424" y="213" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="600">util</text>
+
+  <rect x="488" y="182" width="120" height="38" rx="6" fill="#16213e" stroke="#48BB78" stroke-width="1.5"/>
+  <text x="548" y="198" text-anchor="middle" fill="#48BB78" font-size="10">✓</text>
+  <text x="548" y="213" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="600">process</text>
+
+  <rect x="622" y="182" width="118" height="38" rx="6" fill="#16213e" stroke="#48BB78" stroke-width="1.5"/>
+  <text x="681" y="198" text-anchor="middle" fill="#48BB78" font-size="10">✓</text>
+  <text x="681" y="213" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="600">perf_hooks</text>
+
+  <!-- Flecha hacia arriba a Workers Runtime -->
+  <line x1="410" y1="106" x2="410" y2="128" stroke="#48BB78" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrG2)"/>
+  <text x="430" y="120" fill="#48BB78" font-size="9">polyfills</text>
+
+  <!-- ── SEPARADOR ── -->
+  <line x1="20" y1="242" x2="800" y2="242" stroke="#2D3748" stroke-width="1" stroke-dasharray="6,4"/>
+  <text x="410" y="258" text-anchor="middle" fill="#A0AEC0" font-size="11">NO disponible (sin polyfill)</text>
+
+  <!-- Módulos NO disponibles -->
+  <rect x="80" y="268" width="90" height="36" rx="6" fill="#16213e" stroke="#FC8181" stroke-width="1.5"/>
+  <text x="125" y="284" text-anchor="middle" fill="#FC8181" font-size="10">✗</text>
+  <text x="125" y="298" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="600">fs</text>
+
+  <rect x="190" y="268" width="90" height="36" rx="6" fill="#16213e" stroke="#FC8181" stroke-width="1.5"/>
+  <text x="235" y="284" text-anchor="middle" fill="#FC8181" font-size="10">✗</text>
+  <text x="235" y="298" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="600">http</text>
+
+  <rect x="300" y="268" width="90" height="36" rx="6" fill="#16213e" stroke="#FC8181" stroke-width="1.5"/>
+  <text x="345" y="284" text-anchor="middle" fill="#FC8181" font-size="10">✗</text>
+  <text x="345" y="298" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="600">net</text>
+
+  <rect x="410" y="268" width="130" height="36" rx="6" fill="#16213e" stroke="#FC8181" stroke-width="1.5"/>
+  <text x="475" y="284" text-anchor="middle" fill="#FC8181" font-size="10">✗</text>
+  <text x="475" y="298" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="600">child_process</text>
+
+  <rect x="560" y="268" width="90" height="36" rx="6" fill="#16213e" stroke="#FC8181" stroke-width="1.5"/>
+  <text x="605" y="284" text-anchor="middle" fill="#FC8181" font-size="10">✗</text>
+  <text x="605" y="298" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="600">cluster</text>
+
+  <rect x="670" y="268" width="90" height="36" rx="6" fill="#16213e" stroke="#FC8181" stroke-width="1.5"/>
+  <text x="715" y="284" text-anchor="middle" fill="#FC8181" font-size="10">✗</text>
+  <text x="715" y="298" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="600">dns</text>
+
+  <!-- ── Nota inferior ── -->
+  <rect x="20" y="322" width="780" height="58" rx="8" fill="#16213e" stroke="#2D3748" stroke-width="1.5"/>
+  <text x="410" y="343" text-anchor="middle" fill="#A0AEC0" font-size="11">Para activar: añadir</text>
+  <text x="410" y="359" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="600">"compatibility_flags": ["nodejs_compat_v2"]</text>
+  <text x="410" y="374" text-anchor="middle" fill="#A0AEC0" font-size="11">en wrangler.jsonc · Reemplaza el flag anterior "nodejs_compat"</text>
+
+  <defs>
+    <marker id="arrG2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#48BB78"/>
+    </marker>
+  </defs>
+</svg>

@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 380" width="820" height="380" font-family="system-ui, -apple-system, sans-serif">
+  <!-- Fondo -->
+  <rect width="820" height="380" fill="#1a1a2e"/>
+
+  <!-- Título -->
+  <text x="410" y="32" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="700">Límites del Runtime de Workers</text>
+
+  <!-- ── FILA SUPERIOR: CPU TIME ── -->
+  <rect x="20" y="52" width="380" height="130" rx="10" fill="#16213e" stroke="#2D3748" stroke-width="1.5"/>
+  <text x="210" y="75" text-anchor="middle" fill="#A0AEC0" font-size="12" font-weight="600">⏱ Tiempo de CPU</text>
+
+  <!-- Free -->
+  <rect x="35" y="86" width="160" height="82" rx="8" fill="#1a1a2e" stroke="#2D3748" stroke-width="1"/>
+  <text x="115" y="107" text-anchor="middle" fill="#A0AEC0" font-size="11">Plan Free</text>
+  <text x="115" y="135" text-anchor="middle" fill="#FC8181" font-size="28" font-weight="700">10 ms</text>
+  <text x="115" y="158" text-anchor="middle" fill="#A0AEC0" font-size="10">CPU puro por invocación</text>
+
+  <!-- Paid -->
+  <rect x="213" y="86" width="172" height="82" rx="8" fill="#1a1a2e" stroke="#2D3748" stroke-width="1"/>
+  <text x="299" y="107" text-anchor="middle" fill="#A0AEC0" font-size="11">Plan Paid</text>
+  <text x="299" y="135" text-anchor="middle" fill="#48BB78" font-size="28" font-weight="700">30 s</text>
+  <text x="299" y="158" text-anchor="middle" fill="#A0AEC0" font-size="10">CPU puro por invocación</text>
+
+  <!-- ── FILA SUPERIOR: MEMORY ── -->
+  <rect x="420" y="52" width="380" height="130" rx="10" fill="#16213e" stroke="#2D3748" stroke-width="1.5"/>
+  <text x="610" y="75" text-anchor="middle" fill="#A0AEC0" font-size="12" font-weight="600">🧠 Memoria</text>
+
+  <rect x="435" y="86" width="160" height="82" rx="8" fill="#1a1a2e" stroke="#2D3748" stroke-width="1"/>
+  <text x="515" y="107" text-anchor="middle" fill="#A0AEC0" font-size="11">Plan Free</text>
+  <text x="515" y="135" text-anchor="middle" fill="#F38020" font-size="28" font-weight="700">128 MB</text>
+  <text x="515" y="158" text-anchor="middle" fill="#A0AEC0" font-size="10">por invocación</text>
+
+  <rect x="613" y="86" width="172" height="82" rx="8" fill="#1a1a2e" stroke="#2D3748" stroke-width="1"/>
+  <text x="699" y="107" text-anchor="middle" fill="#A0AEC0" font-size="11">Plan Paid</text>
+  <text x="699" y="135" text-anchor="middle" fill="#F38020" font-size="28" font-weight="700">128 MB</text>
+  <text x="699" y="158" text-anchor="middle" fill="#A0AEC0" font-size="10">por invocación</text>
+
+  <!-- ── FILA INFERIOR: 4 métricas ── -->
+  <!-- Subrequests -->
+  <rect x="20" y="200" width="185" height="100" rx="10" fill="#16213e" stroke="#2D3748" stroke-width="1.5"/>
+  <text x="112" y="222" text-anchor="middle" fill="#A0AEC0" font-size="11" font-weight="600">🔗 Subrequests</text>
+  <text x="72" y="256" text-anchor="middle" fill="#FC8181" font-size="22" font-weight="700">50</text>
+  <text x="72" y="273" text-anchor="middle" fill="#A0AEC0" font-size="10">Free</text>
+  <text x="152" y="256" text-anchor="middle" fill="#48BB78" font-size="22" font-weight="700">1.000</text>
+  <text x="152" y="273" text-anchor="middle" fill="#A0AEC0" font-size="10">Paid</text>
+  <text x="112" y="292" text-anchor="middle" fill="#A0AEC0" font-size="10">fetch() salientes</text>
+
+  <!-- Bundle size -->
+  <rect x="218" y="200" width="185" height="100" rx="10" fill="#16213e" stroke="#2D3748" stroke-width="1.5"/>
+  <text x="310" y="222" text-anchor="middle" fill="#A0AEC0" font-size="11" font-weight="600">📦 Bundle Size</text>
+  <text x="310" y="256" text-anchor="middle" fill="#F38020" font-size="22" font-weight="700">1 MB</text>
+  <text x="310" y="273" text-anchor="middle" fill="#A0AEC0" font-size="10">comprimido (gzip)</text>
+  <text x="310" y="292" text-anchor="middle" fill="#A0AEC0" font-size="10">Free y Paid</text>
+
+  <!-- Wall clock -->
+  <rect x="416" y="200" width="185" height="100" rx="10" fill="#16213e" stroke="#2D3748" stroke-width="1.5"/>
+  <text x="508" y="222" text-anchor="middle" fill="#A0AEC0" font-size="11" font-weight="600">🕐 Wall-clock Time</text>
+  <text x="508" y="256" text-anchor="middle" fill="#F38020" font-size="22" font-weight="700">30 s</text>
+  <text x="508" y="273" text-anchor="middle" fill="#A0AEC0" font-size="10">máximo por request</text>
+  <text x="508" y="292" text-anchor="middle" fill="#A0AEC0" font-size="10">incluye await I/O</text>
+
+  <!-- Workers activos -->
+  <rect x="614" y="200" width="186" height="100" rx="10" fill="#16213e" stroke="#2D3748" stroke-width="1.5"/>
+  <text x="707" y="222" text-anchor="middle" fill="#A0AEC0" font-size="11" font-weight="600">🚀 Workers activos</text>
+  <text x="660" y="256" text-anchor="middle" fill="#FC8181" font-size="22" font-weight="700">100</text>
+  <text x="660" y="273" text-anchor="middle" fill="#A0AEC0" font-size="10">Free</text>
+  <text x="755" y="256" text-anchor="middle" fill="#48BB78" font-size="22" font-weight="700">∞</text>
+  <text x="755" y="273" text-anchor="middle" fill="#A0AEC0" font-size="10">Paid</text>
+  <text x="707" y="292" text-anchor="middle" fill="#A0AEC0" font-size="10">deployados en cuenta</text>
+
+  <!-- ── Nota clave ── -->
+  <rect x="20" y="316" width="780" height="48" rx="8" fill="#16213e" stroke="#F38020" stroke-width="1.5"/>
+  <text x="410" y="336" text-anchor="middle" fill="#A0AEC0" font-size="11">⚡ CPU time ≠ wall-clock time. Los 10 ms (Free) son de CPU puro.</text>
+  <text x="410" y="355" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="600">Un Worker puede hacer await fetch() durante 29 s y solo usar 2 ms de CPU → dentro del límite.</text>
+</svg>

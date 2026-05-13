@@ -6,7 +6,12 @@
 
 ## 🎯 Objetivos
 
-> 🚧 Contenido en desarrollo.
+Al finalizar esta semana serás capaz de:
+
+1. Explicar el lifecycle de un V8 Isolate (cold start → warm → retire) y por qué Workers no tiene el cold start de los contenedores
+2. Activar `nodejs_compat_v2` y usar módulos Node.js (`crypto`, `buffer`) dentro de un Worker
+3. Conocer los límites del runtime (CPU time, memoria, bundle size, subrequests) y cómo monitorearlos
+4. Implementar error handling global con `HTTPException` y middleware de logging en Hono
 
 ---
 
