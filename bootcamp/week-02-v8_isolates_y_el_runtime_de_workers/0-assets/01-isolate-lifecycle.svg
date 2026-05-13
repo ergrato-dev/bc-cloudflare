@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 420" width="820" height="420" font-family="system-ui, -apple-system, sans-serif">
+  <!-- Fondo -->
+  <rect width="820" height="420" fill="#1a1a2e"/>
+
+  <!-- Título -->
+  <text x="410" y="34" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="700">Lifecycle de un V8 Isolate</text>
+
+  <!-- ── CLIENTE ── -->
+  <rect x="20" y="70" width="120" height="50" rx="8" fill="#16213e" stroke="#2D3748" stroke-width="1.5"/>
+  <text x="80" y="91" text-anchor="middle" fill="#A0AEC0" font-size="11">Cliente</text>
+  <text x="80" y="109" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="600">HTTP Request</text>
+
+  <!-- Flecha cliente → PoP -->
+  <line x1="140" y1="95" x2="200" y2="95" stroke="#F38020" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="170" y="88" text-anchor="middle" fill="#A0AEC0" font-size="10">TCP/TLS</text>
+
+  <!-- ── POP ── -->
+  <rect x="200" y="60" width="130" height="70" rx="8" fill="#16213e" stroke="#2D3748" stroke-width="1.5"/>
+  <text x="265" y="84" text-anchor="middle" fill="#A0AEC0" font-size="11">Cloudflare PoP</text>
+  <text x="265" y="103" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="600">¿Isolate activo?</text>
+  <text x="265" y="120" text-anchor="middle" fill="#A0AEC0" font-size="10">worker-id lookup</text>
+
+  <!-- Flecha PoP → decisión -->
+  <line x1="330" y1="95" x2="380" y2="95" stroke="#FFFFFF" stroke-width="1.5" marker-end="url(#arrW)"/>
+
+  <!-- ── ROMBO decisión ── -->
+  <polygon points="410,70 450,95 410,120 370,95" fill="#16213e" stroke="#2D3748" stroke-width="1.5"/>
+  <text x="410" y="92" text-anchor="middle" fill="#FFFFFF" font-size="10" font-weight="700">¿existe</text>
+  <text x="410" y="107" text-anchor="middle" fill="#FFFFFF" font-size="10" font-weight="700">Isolate?</text>
+
+  <!-- ── RAMA SÍ (caliente) ── -->
+  <!-- Flecha → derecha: SÍ -->
+  <line x1="450" y1="95" x2="520" y2="95" stroke="#48BB78" stroke-width="2" marker-end="url(#arrG)"/>
+  <text x="485" y="88" text-anchor="middle" fill="#48BB78" font-size="10" font-weight="600">SÍ</text>
+
+  <rect x="520" y="68" width="150" height="54" rx="8" fill="#16213e" stroke="#48BB78" stroke-width="1.5"/>
+  <text x="595" y="89" text-anchor="middle" fill="#48BB78" font-size="11" font-weight="600">Isolate CALIENTE</text>
+  <text x="595" y="106" text-anchor="middle" fill="#A0AEC0" font-size="10">reutiliza instancia</text>
+  <text x="595" y="118" text-anchor="middle" fill="#48BB78" font-size="11" font-weight="700">~0.01 ms</text>
+
+  <!-- ── RAMA NO (frío) ── -->
+  <!-- Flecha → abajo: NO -->
+  <line x1="410" y1="120" x2="410" y2="175" stroke="#FC8181" stroke-width="2" marker-end="url(#arrR)"/>
+  <text x="420" y="152" fill="#FC8181" font-size="10" font-weight="600">NO</text>
+
+  <rect x="330" y="175" width="160" height="80" rx="8" fill="#16213e" stroke="#FC8181" stroke-width="1.5"/>
+  <text x="410" y="197" text-anchor="middle" fill="#FC8181" font-size="11" font-weight="600">Isolate FRÍO</text>
+  <text x="410" y="213" text-anchor="middle" fill="#A0AEC0" font-size="10">1. compilar TS → JS</text>
+  <text x="410" y="228" text-anchor="middle" fill="#A0AEC0" font-size="10">2. inicializar V8</text>
+  <text x="410" y="244" text-anchor="middle" fill="#FC8181" font-size="11" font-weight="700">~0.5–5 ms total</text>
+
+  <!-- Flecha frío → ejecución -->
+  <line x1="490" y1="215" x2="554" y2="215" stroke="#F38020" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- ── BLOCO EJECUCIÓN ── -->
+  <rect x="555" y="175" width="155" height="80" rx="8" fill="#F38020"/>
+  <text x="632" y="205" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="700">Worker Handler</text>
+  <text x="632" y="221" text-anchor="middle" fill="#FFFFFF" font-size="10">fetch(req, env, ctx)</text>
+  <text x="632" y="238" text-anchor="middle" fill="#FFFFFF" font-size="10">→ Response</text>
+
+  <!-- Flecha caliente → ejecución -->
+  <line x1="595" y1="122" x2="632" y2="175" stroke="#F38020" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Flecha ejecución → respuesta -->
+  <line x1="710" y1="215" x2="770" y2="215" stroke="#F38020" stroke-width="2" marker-end="url(#arr)"/>
+  <rect x="710" y="195" width="1" height="1" fill="none"/>
+  <rect x="771" y="190" width="32" height="50" rx="6" fill="#16213e" stroke="#2D3748" stroke-width="1.5"/>
+  <text x="787" y="213" text-anchor="middle" fill="#A0AEC0" font-size="10">HTTP</text>
+  <text x="787" y="228" text-anchor="middle" fill="#FFFFFF" font-size="10">200</text>
+
+  <!-- ── INFO INFERIOR ── -->
+  <rect x="20" y="300" width="780" height="100" rx="8" fill="#16213e" stroke="#2D3748" stroke-width="1.5"/>
+  <text x="410" y="322" text-anchor="middle" fill="#A0AEC0" font-size="11" font-weight="600">Propiedades clave del Isolate</text>
+
+  <!-- Columna 1 -->
+  <rect x="40" y="332" width="180" height="52" rx="6" fill="#1a1a2e" stroke="#2D3748" stroke-width="1"/>
+  <text x="130" y="352" text-anchor="middle" fill="#F38020" font-size="11" font-weight="700">Sin estado compartido</text>
+  <text x="130" y="368" text-anchor="middle" fill="#A0AEC0" font-size="10">cada request tiene</text>
+  <text x="130" y="381" text-anchor="middle" fill="#A0AEC0" font-size="10">su propio contexto</text>
+
+  <!-- Columna 2 -->
+  <rect x="235" y="332" width="180" height="52" rx="6" fill="#1a1a2e" stroke="#2D3748" stroke-width="1"/>
+  <text x="325" y="352" text-anchor="middle" fill="#F38020" font-size="11" font-weight="700">Reutilización en PoP</text>
+  <text x="325" y="368" text-anchor="middle" fill="#A0AEC0" font-size="10">un Isolate caliente sirve</text>
+  <text x="325" y="381" text-anchor="middle" fill="#A0AEC0" font-size="10">miles de requests</text>
+
+  <!-- Columna 3 -->
+  <rect x="430" y="332" width="170" height="52" rx="6" fill="#1a1a2e" stroke="#2D3748" stroke-width="1"/>
+  <text x="515" y="352" text-anchor="middle" fill="#F38020" font-size="11" font-weight="700">128 MB de memoria</text>
+  <text x="515" y="368" text-anchor="middle" fill="#A0AEC0" font-size="10">límite por invocación</text>
+  <text x="515" y="381" text-anchor="middle" fill="#A0AEC0" font-size="10">en Free y Paid</text>
+
+  <!-- Columna 4 -->
+  <rect x="615" y="332" width="170" height="52" rx="6" fill="#1a1a2e" stroke="#2D3748" stroke-width="1"/>
+  <text x="700" y="352" text-anchor="middle" fill="#F38020" font-size="11" font-weight="700">CPU: 10 ms / 30 s</text>
+  <text x="700" y="368" text-anchor="middle" fill="#A0AEC0" font-size="10">Free / Paid</text>
+  <text x="700" y="381" text-anchor="middle" fill="#A0AEC0" font-size="10">(solo tiempo de CPU)</text>
+
+  <!-- Marcadores de flecha -->
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#F38020"/>
+    </marker>
+    <marker id="arrW" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#FFFFFF"/>
+    </marker>
+    <marker id="arrG" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#48BB78"/>
+    </marker>
+    <marker id="arrR" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#FC8181"/>
+    </marker>
+  </defs>
+</svg>

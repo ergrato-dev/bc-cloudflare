@@ -1,0 +1,9 @@
+{
+  "name": "ejercicio-02-nodejs-compat",
+  "main": "src/index.ts",
+  "compatibility_date": "2024-09-23",
+  "compatibility_flags": ["nodejs_compat_v2"],
+  "vars": {
+    "WEBHOOK_SECRET": "dev-secret-change-in-production"
+  }
+}
