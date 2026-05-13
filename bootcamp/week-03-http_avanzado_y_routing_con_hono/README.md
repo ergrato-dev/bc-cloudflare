@@ -6,7 +6,12 @@
 
 ## 🎯 Objetivos
 
-> 🚧 Contenido en desarrollo.
+Al finalizar esta semana serás capaz de:
+
+1. Implementar routing avanzado en Hono con path params, query params y `app.route()` para proyectos modulares
+2. Validar inputs con Zod y `@hono/zod-validator` en todos los endpoints que reciben datos
+3. Proteger rutas con JWT usando `hono/jwt` y Variables de contexto (`c.set` / `c.get`)
+4. Usar el cliente RPC de Hono para llamadas type-safe entre Workers
 
 ---
 

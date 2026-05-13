@@ -1,0 +1,9 @@
+{
+  "name": "ejercicio-02-jwt-auth",
+  "main": "src/index.ts",
+  "compatibility_date": "2024-09-23",
+  "compatibility_flags": ["nodejs_compat_v2"],
+  "vars": {
+    "JWT_SECRET": "dev-secret-change-in-production"
+  }
+}

@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 420" width="820" height="420">
+  <!-- Fondo -->
+  <rect width="820" height="420" fill="#1a1a2e"/>
+
+  <!-- Título -->
+  <rect x="0" y="0" width="820" height="48" fill="#16213e"/>
+  <text x="410" y="30" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF" text-anchor="middle">Validación con Zod — Flujo de zValidator</text>
+  <text x="410" y="43" font-family="system-ui, sans-serif" font-size="11" fill="#A0AEC0" text-anchor="middle">Semana 03 · @hono/zod-validator</text>
+
+  <!-- ============================== -->
+  <!-- SCHEMA DEFINITION (izquierda) -->
+  <!-- ============================== -->
+  <rect x="20" y="62" width="210" height="200" rx="8" fill="#16213e" stroke="#9F7AEA" stroke-width="1.5"/>
+  <rect x="20" y="62" width="210" height="32" rx="8" fill="#9F7AEA" fill-opacity="0.3"/>
+  <rect x="20" y="82" width="210" height="12" fill="#9F7AEA" fill-opacity="0.3"/>
+  <text x="125" y="82" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#9F7AEA" text-anchor="middle">Zod Schema</text>
+  <text x="35" y="112" font-family="system-ui, sans-serif" font-size="10" fill="#A0AEC0">const schema = z.object({</text>
+  <text x="45" y="128" font-family="system-ui, sans-serif" font-size="10" fill="#38A169">  name:</text>
+  <text x="80" y="128" font-family="system-ui, sans-serif" font-size="10" fill="#FFFFFF">z.string().min(2),</text>
+  <text x="45" y="144" font-family="system-ui, sans-serif" font-size="10" fill="#38A169">  price:</text>
+  <text x="83" y="144" font-family="system-ui, sans-serif" font-size="10" fill="#FFFFFF">z.number().positive(),</text>
+  <text x="45" y="160" font-family="system-ui, sans-serif" font-size="10" fill="#38A169">  category:</text>
+  <text x="98" y="160" font-family="system-ui, sans-serif" font-size="10" fill="#FFFFFF">z.string(),</text>
+  <text x="35" y="176" font-family="system-ui, sans-serif" font-size="10" fill="#A0AEC0">})</text>
+  <text x="35" y="198" font-family="system-ui, sans-serif" font-size="10" fill="#A0AEC0">type Product =</text>
+  <text x="35" y="212" font-family="system-ui, sans-serif" font-size="10" fill="#9F7AEA">  z.infer&lt;typeof schema&gt;</text>
+  <text x="35" y="228" font-family="system-ui, sans-serif" font-size="10" fill="#A0AEC0">// { name: string,</text>
+  <text x="35" y="242" font-family="system-ui, sans-serif" font-size="10" fill="#A0AEC0">//   price: number, ... }</text>
+
+  <!-- Arrow: schema → zValidator -->
+  <line x1="230" y1="162" x2="265" y2="162" stroke="#9F7AEA" stroke-width="1.5"/>
+  <polygon points="269,162 261,158 261,166" fill="#9F7AEA"/>
+
+  <!-- ============================== -->
+  <!-- INCOMING REQUEST (arriba centro) -->
+  <!-- ============================== -->
+  <rect x="270" y="62" width="260" height="58" rx="8" fill="#16213e" stroke="#2D3748" stroke-width="1"/>
+  <text x="400" y="84" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#FFFFFF" text-anchor="middle">POST /products</text>
+  <rect x="285" y="92" width="230" height="20" rx="4" fill="#1a1a2e"/>
+  <text x="400" y="106" font-family="system-ui, sans-serif" font-size="10" fill="#63B3ED" text-anchor="middle">{ "name": "Cyberpunk 2077", "price": 29.99 }</text>
+
+  <!-- Arrow: request → zValidator -->
+  <line x1="400" y1="120" x2="400" y2="140" stroke="#F38020" stroke-width="1.5"/>
+  <polygon points="400,144 396,136 404,136" fill="#F38020"/>
+
+  <!-- ============================== -->
+  <!-- zValidator MIDDLEWARE (centro) -->
+  <!-- ============================== -->
+  <rect x="270" y="144" width="260" height="68" rx="8" fill="#F38020" fill-opacity="0.15" stroke="#F38020" stroke-width="2"/>
+  <text x="400" y="166" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#F38020" text-anchor="middle">zValidator("json", schema)</text>
+  <text x="400" y="182" font-family="system-ui, sans-serif" font-size="10" fill="#A0AEC0" text-anchor="middle">1. Parsea el body con el schema</text>
+  <text x="400" y="196" font-family="system-ui, sans-serif" font-size="10" fill="#A0AEC0" text-anchor="middle">2. Valida tipos, mínimos, máximos</text>
+  <text x="400" y="210" font-family="system-ui, sans-serif" font-size="10" fill="#A0AEC0" text-anchor="middle">3. Almacena en c.req.valid("json")</text>
+
+  <!-- Bifurcación: arrows abajo -->
+  <line x1="350" y1="212" x2="310" y2="250" stroke="#38A169" stroke-width="1.5"/>
+  <polygon points="308,254 304,244 314,247" fill="#38A169"/>
+  <text x="305" y="243" font-family="system-ui, sans-serif" font-size="10" fill="#38A169">✓ válido</text>
+
+  <line x1="450" y1="212" x2="490" y2="250" stroke="#E53E3E" stroke-width="1.5"/>
+  <polygon points="492,254 488,244 498,247" fill="#E53E3E"/>
+  <text x="456" y="243" font-family="system-ui, sans-serif" font-size="10" fill="#E53E3E">✗ inválido</text>
+
+  <!-- ============================== -->
+  <!-- PATH SUCCESS (izquierda abajo) -->
+  <!-- ============================== -->
+  <rect x="200" y="255" width="185" height="80" rx="8" fill="#16213e" stroke="#38A169" stroke-width="1.5"/>
+  <rect x="200" y="255" width="185" height="28" rx="8" fill="#38A169" fill-opacity="0.2"/>
+  <rect x="200" y="271" width="185" height="12" fill="#38A169" fill-opacity="0.2"/>
+  <text x="292" y="272" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#38A169" text-anchor="middle">Route Handler</text>
+  <text x="215" y="292" font-family="system-ui, sans-serif" font-size="10" fill="#A0AEC0">const data =</text>
+  <text x="215" y="307" font-family="system-ui, sans-serif" font-size="10" fill="#FFFFFF">  c.req.valid("json")</text>
+  <text x="215" y="322" font-family="system-ui, sans-serif" font-size="10" fill="#A0AEC0">// data: Product (tipado)</text>
+
+  <!-- Arrow: handler → 201 -->
+  <line x1="292" y1="335" x2="292" y2="358" stroke="#38A169" stroke-width="1.5"/>
+  <polygon points="292,362 288,354 296,354" fill="#38A169"/>
+
+  <rect x="220" y="362" width="144" height="30" rx="6" fill="#38A169" fill-opacity="0.2" stroke="#38A169" stroke-width="1.5"/>
+  <text x="292" y="381" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#38A169" text-anchor="middle">201 Created</text>
+
+  <!-- ============================== -->
+  <!-- PATH ERROR (derecha abajo) -->
+  <!-- ============================== -->
+  <rect x="430" y="255" width="210" height="80" rx="8" fill="#16213e" stroke="#E53E3E" stroke-width="1.5"/>
+  <rect x="430" y="255" width="210" height="28" rx="8" fill="#E53E3E" fill-opacity="0.2"/>
+  <rect x="430" y="271" width="210" height="12" fill="#E53E3E" fill-opacity="0.2"/>
+  <text x="535" y="272" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#E53E3E" text-anchor="middle">Validation Error</text>
+  <text x="445" y="292" font-family="system-ui, sans-serif" font-size="10" fill="#A0AEC0">{ "error": "Datos inválidos",</text>
+  <text x="445" y="307" font-family="system-ui, sans-serif" font-size="10" fill="#A0AEC0">  "details": [{ "field": "price",</text>
+  <text x="445" y="322" font-family="system-ui, sans-serif" font-size="10" fill="#A0AEC0">    "message": "Expected number" }] }</text>
+
+  <!-- Arrow: error → 422 -->
+  <line x1="535" y1="335" x2="535" y2="358" stroke="#E53E3E" stroke-width="1.5"/>
+  <polygon points="535,362 531,354 539,354" fill="#E53E3E"/>
+
+  <rect x="465" y="362" width="140" height="30" rx="6" fill="#E53E3E" fill-opacity="0.2" stroke="#E53E3E" stroke-width="1.5"/>
+  <text x="535" y="381" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#E53E3E" text-anchor="middle">422 Unprocessable</text>
+
+  <!-- Nota inferior -->
+  <rect x="0" y="400" width="820" height="20" fill="#16213e"/>
+  <text x="410" y="415" font-family="system-ui, sans-serif" font-size="10" fill="#A0AEC0" text-anchor="middle">El handler solo se ejecuta si la validación pasa — nunca recibe datos inválidos</text>
+</svg>
