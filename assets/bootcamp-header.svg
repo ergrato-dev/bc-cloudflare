@@ -1,0 +1,131 @@
+<svg viewBox="0 0 860 200"
+  xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,'Segoe UI',Roboto,sans-serif">
+
+  <title>Bootcamp Cloudflare — De Cero a Héroe</title>
+
+  <defs>
+    <clipPath id="panel">
+      <rect width="210" height="200"/>
+    </clipPath>
+  </defs>
+
+  <!-- ── FONDOS ── -->
+  <rect width="860" height="200" fill="#1a1a2e"/>
+  <rect width="210" height="200" fill="#16213e"/>
+
+  <!-- ── GLOBO — RED EDGE GLOBAL ── -->
+  <g clip-path="url(#panel)">
+
+    <!-- Círculo exterior -->
+    <circle cx="107" cy="100" r="66" fill="none" stroke="#2D3748" stroke-width="1.2"/>
+
+    <!-- Líneas de latitud -->
+    <ellipse cx="107" cy="100" rx="66" ry="22" fill="none" stroke="#2D3748" stroke-width="0.8"/>
+    <ellipse cx="107" cy="78" rx="55" ry="12" fill="none" stroke="#2D3748" stroke-width="0.5" opacity="0.7"/>
+    <ellipse cx="107" cy="122" rx="55" ry="12" fill="none" stroke="#2D3748" stroke-width="0.5" opacity="0.7"/>
+    <ellipse cx="107" cy="60" rx="38" ry="7" fill="none" stroke="#2D3748" stroke-width="0.4" opacity="0.5"/>
+    <ellipse cx="107" cy="140" rx="38" ry="7" fill="none" stroke="#2D3748" stroke-width="0.4" opacity="0.5"/>
+
+    <!-- Líneas de longitud -->
+    <line x1="107" y1="34" x2="107" y2="166" stroke="#2D3748" stroke-width="0.6" opacity="0.6"/>
+    <ellipse cx="107" cy="100" rx="30" ry="66" fill="none" stroke="#2D3748" stroke-width="0.5" opacity="0.6"/>
+    <ellipse cx="107" cy="100" rx="57" ry="66" fill="none" stroke="#2D3748" stroke-width="0.4" opacity="0.4"/>
+
+    <!-- Líneas de conexión entre PoPs (orange, baja opacidad) -->
+    <line x1="107" y1="36" x2="152" y2="72" stroke="#F38020" stroke-width="0.8" opacity="0.30"/>
+    <line x1="152" y1="72" x2="170" y2="100" stroke="#F38020" stroke-width="0.8" opacity="0.30"/>
+    <line x1="170" y1="100" x2="152" y2="128" stroke="#F38020" stroke-width="0.8" opacity="0.30"/>
+    <line x1="152" y1="128" x2="107" y2="164" stroke="#F38020" stroke-width="0.8" opacity="0.30"/>
+    <line x1="107" y1="36" x2="62" y2="72" stroke="#F38020" stroke-width="0.8" opacity="0.30"/>
+    <line x1="62" y1="72" x2="44" y2="100" stroke="#F38020" stroke-width="0.8" opacity="0.30"/>
+    <line x1="44" y1="100" x2="62" y2="128" stroke="#F38020" stroke-width="0.8" opacity="0.30"/>
+    <line x1="62" y1="128" x2="107" y2="164" stroke="#F38020" stroke-width="0.8" opacity="0.30"/>
+    <line x1="125" y1="90" x2="152" y2="72" stroke="#F38020" stroke-width="0.8" opacity="0.30"/>
+    <line x1="125" y1="90" x2="88" y2="112" stroke="#F38020" stroke-width="0.8" opacity="0.30"/>
+    <line x1="125" y1="90" x2="170" y2="100" stroke="#F38020" stroke-width="0.8" opacity="0.25"/>
+    <line x1="88" y1="112" x2="62" y2="128" stroke="#F38020" stroke-width="0.8" opacity="0.25"/>
+    <line x1="88" y1="112" x2="44" y2="100" stroke="#F38020" stroke-width="0.8" opacity="0.25"/>
+
+    <!-- Nodos PoP (puntos naranja = ciudades edge) -->
+    <circle cx="107" cy="36" r="4.5" fill="#F38020"/>
+    <circle cx="152" cy="72" r="4.5" fill="#F38020"/>
+    <circle cx="170" cy="100" r="3.5" fill="#F38020" opacity="0.9"/>
+    <circle cx="152" cy="128" r="4" fill="#F38020" opacity="0.85"/>
+    <circle cx="107" cy="164" r="3.5" fill="#F38020" opacity="0.85"/>
+    <circle cx="62" cy="72" r="3.5" fill="#F38020" opacity="0.9"/>
+    <circle cx="44" cy="100" r="4" fill="#F38020" opacity="0.9"/>
+    <circle cx="62" cy="128" r="3.5" fill="#F38020" opacity="0.85"/>
+    <circle cx="125" cy="90" r="5.5" fill="#F38020"/>
+    <circle cx="88" cy="112" r="4" fill="#F38020" opacity="0.8"/>
+
+    <!-- Etiqueta EDGE -->
+    <text x="107" y="104" text-anchor="middle" fill="#F38020" font-size="9" font-weight="700" letter-spacing="3" opacity="0.9">EDGE</text>
+
+  </g>
+
+  <!-- Barra naranja izquierda (encima del panel) -->
+  <rect width="4" height="200" fill="#F38020"/>
+
+  <!-- Línea divisoria vertical -->
+  <line x1="222" y1="20" x2="222" y2="180" stroke="#2D3748" stroke-width="1" opacity="0.5"/>
+
+  <!-- ── ÁREA DE CONTENIDO ── -->
+
+  <!-- Elemento "21 SEMANAS" esquina superior derecha (sutil) -->
+  <text x="848" y="46" text-anchor="end" fill="#2D3748" font-size="28" font-weight="900">21</text>
+  <text x="848" y="61" text-anchor="end" fill="#2D3748" font-size="10" font-weight="600" letter-spacing="2">SEMANAS</text>
+
+  <!-- Título principal -->
+  <text x="236" y="76" fill="#FFFFFF" font-size="38" font-weight="800" letter-spacing="-0.5">Bootcamp Cloudflare</text>
+
+  <!-- Subtítulo -->
+  <text x="236" y="110" fill="#F38020" font-size="21" font-weight="600">De Cero a Héroe</text>
+
+  <!-- Línea de estadísticas -->
+  <text x="236" y="134" fill="#718096" font-size="12.5" letter-spacing="0.2">21 semanas · 168 horas · TypeScript · Hono · D1 · R2 · Workers AI · Agents</text>
+
+  <!-- Separador horizontal -->
+  <line x1="236" y1="148" x2="750" y2="148" stroke="#2D3748" stroke-width="0.8" opacity="0.6"/>
+
+  <!-- ── BADGES DE TECNOLOGÍA ── -->
+
+  <!-- Workers -->
+  <rect x="236" y="157" width="70" height="22" rx="4" fill="#F38020"/>
+  <text x="271" y="172" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="700">Workers</text>
+
+  <!-- Hono -->
+  <rect x="314" y="157" width="50" height="22" rx="4" fill="#E44D26"/>
+  <text x="339" y="172" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="700">Hono</text>
+
+  <!-- TypeScript -->
+  <rect x="372" y="157" width="88" height="22" rx="4" fill="#3178C6"/>
+  <text x="416" y="172" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="700">TypeScript</text>
+
+  <!-- D1 -->
+  <rect x="468" y="157" width="34" height="22" rx="4" fill="#003682"/>
+  <text x="485" y="172" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="700">D1</text>
+
+  <!-- R2 -->
+  <rect x="510" y="157" width="34" height="22" rx="4" fill="#003682"/>
+  <text x="527" y="172" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="700">R2</text>
+
+  <!-- KV -->
+  <rect x="552" y="157" width="34" height="22" rx="4" fill="#003682"/>
+  <text x="569" y="172" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="700">KV</text>
+
+  <!-- Queues -->
+  <rect x="594" y="157" width="60" height="22" rx="4" fill="#003682"/>
+  <text x="624" y="172" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="700">Queues</text>
+
+  <!-- Workers AI -->
+  <rect x="662" y="157" width="76" height="22" rx="4" fill="#16213e" stroke="#F38020" stroke-width="1"/>
+  <text x="700" y="172" text-anchor="middle" fill="#F38020" font-size="11" font-weight="700">Workers AI</text>
+
+  <!-- Agents -->
+  <rect x="746" y="157" width="60" height="22" rx="4" fill="#16213e" stroke="#F38020" stroke-width="1"/>
+  <text x="776" y="172" text-anchor="middle" fill="#F38020" font-size="11" font-weight="700">Agents</text>
+
+  <!-- ── LÍNEA NARANJA INFERIOR ── -->
+  <rect x="0" y="197" width="860" height="3" fill="#F38020"/>
+
+</svg>

@@ -1,0 +1,131 @@
+# ============================================
+# .gitignore — Bootcamp Cloudflare de Cero a Héroe
+# ============================================
+
+# ============================================
+# CLOUDFLARE / WRANGLER
+# ============================================
+
+# Estado local de Wrangler (dev, D1 local, KV local, R2 local)
+.wrangler/
+
+# Secrets locales — NUNCA commitear (contienen credenciales reales)
+.dev.vars
+.dev.vars.*
+
+# Artefactos de build de Workers
+dist/
+worker-configuration.d.ts
+
+# ============================================
+# NODE.JS / PNPM
+# ============================================
+node_modules/
+.pnpm-store/
+
+# Logs de gestores de paquetes
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Nunca ignorar pnpm-lock.yaml — es necesario para builds reproducibles
+# pnpm-lock.yaml ← NO ignorar
+
+# ============================================
+# TYPESCRIPT
+# ============================================
+
+# Salida de compilación de tsc (no aplica a Wrangler, pero sí a scripts)
+*.js.map
+*.d.ts.map
+
+# tsconfig de build intermedios
+tsconfig.tsbuildinfo
+
+# ============================================
+# VARIABLES DE ENTORNO Y SECRETOS
+# ============================================
+.env
+.env.local
+.env.*.local
+*.secret
+secrets.yml
+credentials.json
+
+# ============================================
+# EXPORTACIONES Y SALIDAS
+# ============================================
+_export/
+_output/
+*.pdf
+
+# ============================================
+# SISTEMA OPERATIVO
+# ============================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.Trash-*
+
+# ============================================
+# EDITORES
+# ============================================
+
+# VS Code — conservar extensions.json y settings compartidas
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# JetBrains
+.idea/
+*.iml
+
+# Vim / Neovim
+*.swp
+*.swo
+*.swn
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+
+# Emacs
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+
+# ============================================
+# ARCHIVOS TEMPORALES Y LOGS
+# ============================================
+*.log
+*.tmp
+*.temp
+*.bak
+*.orig
+*.rej
+
+# ============================================
+# TRABAJO EN PROGRESO DEL APRENDIZ
+# ============================================
+# Las entregas de aprendices van en sus propios forks.
+# Si alguien trabaja en una copia local sin fork:
+homework/
+entregables/
+mi-dominio/
+
+# ============================================
+# MATERIAL EXCLUSIVO DEL INSTRUCTOR
+# ============================================
+# Demos y soluciones internas — no exponer a aprendices.
+*6-instructor/
