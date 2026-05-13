@@ -6,7 +6,10 @@
 
 ## 🎯 Objetivos
 
-> 🚧 Contenido en desarrollo.
+1. Crear y configurar una base de datos D1 con la CLI de Wrangler
+2. Ejecutar queries SQL seguras con prepared statements desde un Worker
+3. Gestionar el schema con migraciones versionadas y seed data
+4. Construir queries type-safe con DrizzleORM sobre D1
 
 ---
 

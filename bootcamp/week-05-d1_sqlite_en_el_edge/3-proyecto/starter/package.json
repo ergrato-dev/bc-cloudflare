@@ -1,0 +1,26 @@
+{
+  "name": "proyecto-semana-05",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "typecheck": "tsc --noEmit",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate:local": "wrangler d1 migrations apply catalog-db --local",
+    "db:migrate:prod": "wrangler d1 migrations apply catalog-db",
+    "db:seed:local": "wrangler d1 execute catalog-db --local --file=./seed.sql"
+  },
+  "dependencies": {
+    "hono": "4.12.18",
+    "zod": "4.4.3",
+    "@hono/zod-validator": "0.8.0",
+    "drizzle-orm": "0.45.2"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "4.20260511.1",
+    "drizzle-kit": "0.31.10",
+    "typescript": "6.0.3",
+    "wrangler": "4.90.1"
+  }
+}

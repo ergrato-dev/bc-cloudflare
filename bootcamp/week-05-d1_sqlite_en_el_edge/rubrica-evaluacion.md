@@ -16,19 +16,34 @@
 
 ## 🧠 Conocimiento (30%)
 
-> 🚧 Criterios en desarrollo.
+| Criterio | Puntos |
+|----------|--------|
+| Explica qué es D1 y cómo difiere de una base de datos externa | 25 |
+| Describe el flujo de migraciones: create → apply local → apply remoto | 25 |
+| Explica por qué los prepared statements previenen SQL Injection | 25 |
+| Describe qué aporta DrizzleORM respecto a SQL crudo en D1 | 25 |
 
 ---
 
 ## 💪 Desempeño (40%)
 
-> 🚧 Criterios en desarrollo.
+| Criterio | Puntos |
+|----------|--------|
+| Worker deployado con D1 binding funcional en producción | 25 |
+| Rutas CRUD devuelven los status HTTP correctos (200/201/404/400) | 25 |
+| Queries usan prepared statements — sin concatenación de strings | 25 |
+| Migraciones aplicadas con `wrangler d1 migrations apply` correctamente | 25 |
 
 ---
 
 ## 📦 Producto (30%)
 
-> 🚧 Criterios en desarrollo.
+| Criterio | Puntos |
+|----------|--------|
+| Schema adaptado al dominio asignado (tabla con ≥ 5 columnas) | 25 |
+| Seed con mínimo 20 filas representativas del dominio | 25 |
+| Validación Zod en rutas de mutación (POST/PUT) | 25 |
+| Paginación implementada en la ruta de listado | 25 |
 
 ---
 

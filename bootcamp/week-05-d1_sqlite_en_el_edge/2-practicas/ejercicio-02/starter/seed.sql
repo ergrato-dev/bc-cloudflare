@@ -1,0 +1,22 @@
+-- Seed data — 20 videojuegos representativos
+INSERT INTO games (title, studio, genre, platform, year, price) VALUES
+  ('Elden Ring',                'FromSoftware',          'rpg',       'PC',         2022, 59.99),
+  ('The Legend of Zelda: TotK', 'Nintendo',              'adventure', 'Switch',     2023, 69.99),
+  ('God of War: Ragnarök',      'Santa Monica Studio',   'action',    'PS5',        2022, 59.99),
+  ('Hollow Knight',             'Team Cherry',           'platformer','PC',         2017, 14.99),
+  ('Cyberpunk 2077',            'CD Projekt Red',        'rpg',       'PC',         2020, 39.99),
+  ('Hades',                     'Supergiant Games',      'roguelike', 'PC',         2020, 24.99),
+  ('Stardew Valley',            'ConcernedApe',          'simulation','PC',         2016, 14.99),
+  ('Minecraft',                 'Mojang',                'sandbox',   'PC',         2011, 26.95),
+  ('Red Dead Redemption 2',     'Rockstar Games',        'action',    'PC',         2018, 59.99),
+  ('The Witcher 3',             'CD Projekt Red',        'rpg',       'PC',         2015, 39.99),
+  ('Dark Souls III',            'FromSoftware',          'rpg',       'PC',         2016, 59.99),
+  ('Celeste',                   'Maddy Makes Games',     'platformer','PC',         2018,  9.99),
+  ('Among Us',                  'Innersloth',            'social',    'PC',         2018,  4.99),
+  ('Doom Eternal',              'id Software',           'fps',       'PC',         2020, 39.99),
+  ('Resident Evil 4',           'Capcom',                'survival',  'PC',         2023, 59.99),
+  ('Final Fantasy XVI',         'Square Enix',           'rpg',       'PS5',        2023, 69.99),
+  ('Sekiro',                    'FromSoftware',          'action',    'PC',         2019, 59.99),
+  ('Disco Elysium',             'ZA/UM',                 'rpg',       'PC',         2019, 39.99),
+  ('Outer Wilds',               'Mobius Digital',        'adventure', 'PC',         2019, 24.99),
+  ('Balatro',                   'LocalThunk',            'roguelike', 'PC',         2024, 14.99);
