@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 420" width="820" height="420">
+  <!-- Fondo -->
+  <rect width="820" height="420" fill="#1a1a2e"/>
+
+  <!-- Título -->
+  <rect x="0" y="0" width="820" height="48" fill="#16213e"/>
+  <text x="410" y="30" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF" text-anchor="middle">Cache API — Flujo HIT / MISS</text>
+  <text x="410" y="43" font-family="system-ui, sans-serif" font-size="11" fill="#A0AEC0" text-anchor="middle">Semana 04 · caches.default · cache.match · cache.put · ctx.waitUntil</text>
+
+  <!-- ============================== -->
+  <!-- REQUEST (top) -->
+  <!-- ============================== -->
+  <rect x="300" y="62" width="220" height="52" rx="8" fill="#16213e" stroke="#2D3748" stroke-width="1"/>
+  <text x="410" y="82" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#FFFFFF" text-anchor="middle">Request entrante</text>
+  <text x="410" y="97" font-family="system-ui, sans-serif" font-size="10" fill="#63B3ED" text-anchor="middle">GET /products (URL = cache key)</text>
+
+  <!-- Arrow → cache.match -->
+  <line x1="410" y1="114" x2="410" y2="138" stroke="#F38020" stroke-width="1.5"/>
+  <polygon points="410,142 406,134 414,134" fill="#F38020"/>
+
+  <!-- ============================== -->
+  <!-- CACHE MATCH (center) -->
+  <!-- ============================== -->
+  <rect x="270" y="142" width="280" height="56" rx="8" fill="#F38020" fill-opacity="0.15" stroke="#F38020" stroke-width="2"/>
+  <text x="410" y="163" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#F38020" text-anchor="middle">await cache.match(request)</text>
+  <text x="410" y="180" font-family="system-ui, sans-serif" font-size="10" fill="#A0AEC0" text-anchor="middle">caches.default — caché local del PoP</text>
+
+  <!-- Bifurcación HIT / MISS -->
+  <line x1="330" y1="198" x2="200" y2="240" stroke="#38A169" stroke-width="1.5"/>
+  <polygon points="196,244 195,233 205,238" fill="#38A169"/>
+  <text x="232" y="230" font-family="system-ui, sans-serif" font-size="10" fill="#38A169">HIT</text>
+
+  <line x1="490" y1="198" x2="610" y2="240" stroke="#E53E3E" stroke-width="1.5"/>
+  <polygon points="614,244 610,233 620,238" fill="#E53E3E"/>
+  <text x="572" y="230" font-family="system-ui, sans-serif" font-size="10" fill="#E53E3E">MISS</text>
+
+  <!-- ============================== -->
+  <!-- HIT BRANCH (left) -->
+  <!-- ============================== -->
+  <rect x="80" y="245" width="230" height="50" rx="8" fill="#16213e" stroke="#38A169" stroke-width="1.5"/>
+  <text x="195" y="266" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#38A169" text-anchor="middle">Respuesta cacheada</text>
+  <text x="195" y="282" font-family="system-ui, sans-serif" font-size="9" fill="#A0AEC0" text-anchor="middle">return cachedResponse  — sin cómputo</text>
+
+  <!-- Arrow HIT → 200 -->
+  <line x1="195" y1="295" x2="195" y2="328" stroke="#38A169" stroke-width="1.5"/>
+  <polygon points="195,332 191,324 199,324" fill="#38A169"/>
+
+  <rect x="125" y="332" width="140" height="30" rx="6" fill="#38A169" fill-opacity="0.2" stroke="#38A169" stroke-width="1.5"/>
+  <text x="195" y="351" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#38A169" text-anchor="middle">200 OK (cached)</text>
+
+  <!-- ============================== -->
+  <!-- MISS BRANCH (right) -->
+  <!-- ============================== -->
+  <rect x="510" y="245" width="230" height="50" rx="8" fill="#16213e" stroke="#E53E3E" stroke-width="1.5"/>
+  <text x="625" y="266" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#E53E3E" text-anchor="middle">Calcular respuesta</text>
+  <text x="625" y="282" font-family="system-ui, sans-serif" font-size="9" fill="#A0AEC0" text-anchor="middle">consultar KV / D1 / API externa</text>
+
+  <!-- Arrow MISS → build response -->
+  <line x1="625" y1="295" x2="625" y2="318" stroke="#F38020" stroke-width="1.5"/>
+  <polygon points="625,322 621,314 629,314" fill="#F38020"/>
+
+  <!-- Build response box -->
+  <rect x="510" y="322" width="230" height="52" rx="8" fill="#F38020" fill-opacity="0.12" stroke="#F38020" stroke-width="1.5"/>
+  <text x="625" y="342" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#F38020" text-anchor="middle">new Response(...) +</text>
+  <text x="625" y="357" font-family="system-ui, sans-serif" font-size="10" fill="#A0AEC0" text-anchor="middle">Cache-Control: max-age=300</text>
+
+  <!-- Arrow to cache.put + to client -->
+  <line x1="510" y1="360" x2="400" y2="385" stroke="#9F7AEA" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <polygon points="396,388 396,378 406,382" fill="#9F7AEA"/>
+  <text x="442" y="377" font-family="system-ui, sans-serif" font-size="9" fill="#9F7AEA">ctx.waitUntil(</text>
+  <text x="442" y="389" font-family="system-ui, sans-serif" font-size="9" fill="#9F7AEA">  cache.put(req, res.clone()))</text>
+
+  <line x1="625" y1="374" x2="625" y2="394" stroke="#38A169" stroke-width="1.5"/>
+  <polygon points="625,398 621,390 629,390" fill="#38A169"/>
+
+  <rect x="555" y="398" width="140" height="14" rx="5" fill="#38A169" fill-opacity="0.2" stroke="#38A169" stroke-width="1"/>
+  <text x="625" y="410" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#38A169" text-anchor="middle">200 OK (fresh)</text>
+
+  <!-- caches.default label on right -->
+  <rect x="200" y="378" width="185" height="28" rx="6" fill="#9F7AEA" fill-opacity="0.15" stroke="#9F7AEA" stroke-width="1"/>
+  <text x="292" y="396" font-family="system-ui, sans-serif" font-size="10" fill="#9F7AEA" text-anchor="middle">caches.default almacena para</text>
+
+  <!-- Bottom note -->
+  <rect x="0" y="400" width="820" height="20" fill="#16213e"/>
+  <text x="410" y="415" font-family="system-ui, sans-serif" font-size="10" fill="#A0AEC0" text-anchor="middle">Siempre .clone() antes de cache.put — el body solo puede leerse una vez</text>
+</svg>

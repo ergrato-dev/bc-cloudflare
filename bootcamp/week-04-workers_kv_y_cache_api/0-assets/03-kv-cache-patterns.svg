@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 440" width="820" height="440">
+  <!-- Fondo -->
+  <rect width="820" height="440" fill="#1a1a2e"/>
+
+  <!-- Título -->
+  <rect x="0" y="0" width="820" height="48" fill="#16213e"/>
+  <text x="410" y="30" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF" text-anchor="middle">Patrones KV + Cache API</text>
+  <text x="410" y="43" font-family="system-ui, sans-serif" font-size="11" fill="#A0AEC0" text-anchor="middle">Semana 04 · Cache-aside READ · Write Invalidation · Stale-while-revalidate</text>
+
+  <!-- Separador vertical -->
+  <line x1="410" y1="56" x2="410" y2="430" stroke="#2D3748" stroke-width="1.5" stroke-dasharray="6,3"/>
+
+  <!-- ============================== -->
+  <!-- PANEL 1: Cache-aside READ (left) -->
+  <!-- ============================== -->
+  <text x="205" y="74" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#A0AEC0" text-anchor="middle">CACHE-ASIDE — LECTURA</text>
+
+  <!-- Request -->
+  <rect x="140" y="84" width="130" height="36" rx="7" fill="#16213e" stroke="#2D3748" stroke-width="1"/>
+  <text x="205" y="104" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#FFFFFF" text-anchor="middle">GET /products/:id</text>
+
+  <line x1="205" y1="120" x2="205" y2="140" stroke="#F38020" stroke-width="1.5"/>
+  <polygon points="205,144 201,136 209,136" fill="#F38020"/>
+
+  <!-- KV.get -->
+  <rect x="110" y="144" width="190" height="44" rx="7" fill="#003682" fill-opacity="0.2" stroke="#003682" stroke-width="1.5"/>
+  <text x="205" y="164" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#63B3ED" text-anchor="middle">KV.get("products:42")</text>
+  <text x="205" y="180" font-family="system-ui, sans-serif" font-size="9" fill="#A0AEC0" text-anchor="middle">{ type: "json" }</text>
+
+  <!-- HIT branch -->
+  <line x1="150" y1="188" x2="95" y2="216" stroke="#38A169" stroke-width="1.5"/>
+  <polygon points="92,220 90,209 100,214" fill="#38A169"/>
+  <text x="110" y="208" font-family="system-ui, sans-serif" font-size="9" fill="#38A169">HIT</text>
+
+  <rect x="24" y="220" width="135" height="32" rx="6" fill="#38A169" fill-opacity="0.15" stroke="#38A169" stroke-width="1"/>
+  <text x="91" y="238" font-family="system-ui, sans-serif" font-size="10" fill="#38A169" text-anchor="middle">return cached</text>
+  <text x="91" y="250" font-family="system-ui, sans-serif" font-size="9" fill="#A0AEC0" text-anchor="middle">200 — sin consulta externa</text>
+
+  <!-- MISS branch -->
+  <line x1="260" y1="188" x2="310" y2="216" stroke="#E53E3E" stroke-width="1.5"/>
+  <polygon points="313,220 310,209 320,214" fill="#E53E3E"/>
+  <text x="300" y="208" font-family="system-ui, sans-serif" font-size="9" fill="#E53E3E">MISS</text>
+
+  <rect x="248" y="220" width="145" height="28" rx="6" fill="#E53E3E" fill-opacity="0.1" stroke="#E53E3E" stroke-width="1"/>
+  <text x="320" y="239" font-family="system-ui, sans-serif" font-size="10" fill="#E53E3E" text-anchor="middle">calcular / consultar origen</text>
+
+  <!-- Arrow MISS → KV.put -->
+  <line x1="320" y1="248" x2="270" y2="272" stroke="#F38020" stroke-width="1.5"/>
+  <polygon points="267,275 265,265 275,270" fill="#F38020"/>
+
+  <rect x="170" y="276" width="200" height="34" rx="6" fill="#F38020" fill-opacity="0.12" stroke="#F38020" stroke-width="1.5"/>
+  <text x="270" y="292" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#F38020" text-anchor="middle">KV.put(key, JSON.stringify(data),</text>
+  <text x="270" y="304" font-family="system-ui, sans-serif" font-size="10" fill="#A0AEC0" text-anchor="middle">{ expirationTtl: 3600 })</text>
+
+  <line x1="270" y1="310" x2="205" y2="332" stroke="#38A169" stroke-width="1.5"/>
+  <polygon points="202,335 200,325 210,329" fill="#38A169"/>
+
+  <rect x="130" y="336" width="150" height="26" rx="6" fill="#38A169" fill-opacity="0.2" stroke="#38A169" stroke-width="1.5"/>
+  <text x="205" y="353" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#38A169" text-anchor="middle">return fresh → 200</text>
+
+  <!-- ============================== -->
+  <!-- PANEL 2: Write Invalidation (right) -->
+  <!-- ============================== -->
+  <text x="615" y="74" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#A0AEC0" text-anchor="middle">WRITE INVALIDATION</text>
+
+  <!-- PUT Request -->
+  <rect x="545" y="84" width="140" height="36" rx="7" fill="#16213e" stroke="#2D3748" stroke-width="1"/>
+  <text x="615" y="104" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#FFFFFF" text-anchor="middle">PUT /products/:id</text>
+
+  <line x1="615" y1="120" x2="615" y2="140" stroke="#F38020" stroke-width="1.5"/>
+  <polygon points="615,144 611,136 619,136" fill="#F38020"/>
+
+  <!-- Save to origin -->
+  <rect x="500" y="144" width="230" height="32" rx="7" fill="#16213e" stroke="#2D3748" stroke-width="1"/>
+  <text x="615" y="160" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#FFFFFF" text-anchor="middle">1. actualizar en origen (D1 / API)</text>
+
+  <line x1="615" y1="176" x2="615" y2="196" stroke="#F38020" stroke-width="1.5"/>
+  <polygon points="615,200 611,192 619,192" fill="#F38020"/>
+
+  <!-- KV.delete -->
+  <rect x="490" y="200" width="250" height="40" rx="7" fill="#E53E3E" fill-opacity="0.12" stroke="#E53E3E" stroke-width="2"/>
+  <text x="615" y="218" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#E53E3E" text-anchor="middle">2. KV.delete("products:42")</text>
+  <text x="615" y="234" font-family="system-ui, sans-serif" font-size="9" fill="#A0AEC0" text-anchor="middle">invalida la entrada cacheada</text>
+
+  <line x1="615" y1="240" x2="615" y2="260" stroke="#38A169" stroke-width="1.5"/>
+  <polygon points="615,264 611,256 619,256" fill="#38A169"/>
+
+  <rect x="540" y="264" width="150" height="28" rx="6" fill="#38A169" fill-opacity="0.2" stroke="#38A169" stroke-width="1.5"/>
+  <text x="615" y="282" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#38A169" text-anchor="middle">return 200</text>
+
+  <!-- Next read note -->
+  <rect x="470" y="306" width="290" height="42" rx="7" fill="#16213e" stroke="#9F7AEA" stroke-width="1"/>
+  <text x="615" y="323" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#9F7AEA" text-anchor="middle">Próxima lectura → MISS</text>
+  <text x="615" y="338" font-family="system-ui, sans-serif" font-size="9" fill="#A0AEC0" text-anchor="middle">recarga desde origen y vuelve a cachear</text>
+
+  <!-- TTL note -->
+  <rect x="430" y="362" width="370" height="36" rx="7" fill="#16213e" stroke="#F38020" stroke-width="1"/>
+  <text x="615" y="379" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#F38020" text-anchor="middle">Alternativa: dejar expirar por TTL</text>
+  <text x="615" y="393" font-family="system-ui, sans-serif" font-size="9" fill="#A0AEC0" text-anchor="middle">sin KV.delete — datos eventualmente frescos</text>
+
+  <!-- Nota inferior -->
+  <rect x="0" y="420" width="820" height="20" fill="#16213e"/>
+  <text x="410" y="435" font-family="system-ui, sans-serif" font-size="10" fill="#A0AEC0" text-anchor="middle">Siempre invalida (KV.delete) en datos críticos · Para datos tolerantes a staleness usa TTL corto</text>
+</svg>
