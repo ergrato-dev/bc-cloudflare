@@ -576,19 +576,21 @@ Estas features son el diferencial del bootcamp respecto a contenido antiguo:
 
 ## ✅ Checklist para Nuevas Semanas
 
-Cuando crees contenido para una nueva semana:
+Cuando crees contenido para una nueva semana, **seguir este orden**:
 
-- [ ] Crear estructura de carpetas completa
-- [ ] `README.md` con objetivos, estructura y navegación
-- [ ] Material teórico en `1-teoria/` (máx. 120 líneas por archivo)
-- [ ] Diagrama SVG en `0-assets/` (mínimo 1 por semana)
-- [ ] Ejercicios prácticos en `2-practicas/` (mínimo 2 ejercicios)
-- [ ] Proyecto integrador en `3-proyecto/`
-- [ ] `wrangler.jsonc` con `compatibility_date` exacta y `nodejs_compat_v2`
+- [ ] **1. `README.md`** — objetivos de la semana, distribución del tiempo, tabla de contenido
+- [ ] **2. `rubrica-evaluacion.md`** — criterios de Conocimiento / Desempeño / Producto con puntajes
+- [ ] **3. `1-teoria/`** — archivos markdown numerados (`01-`, `02-`, …), ~180 líneas promedio
+- [ ] **4. `0-assets/`** — diagramas SVG vinculados a la teoría (mínimo 1 por semana)
+- [ ] **5. `2-practicas/`** — ejercicios con `starter/` + `solution/` (mínimo 2 ejercicios)
+- [ ] **6. `3-proyecto/`** — proyecto integrador semanal con TODOs domain-agnostic
+- [ ] **7. `4-recursos/`** — videografía y webgrafía con links oficiales
+- [ ] **8. `5-glosario/README.md`** — términos de la semana ordenados A–Z
+
+### Verificaciones transversales
+
+- [ ] `wrangler.jsonc` con `compatibility_date` exacta y `nodejs_compat_v2` en todos los Workers
 - [ ] `package.json` con versiones exactas (sin `^` ni `~`)
-- [ ] Recursos adicionales en `4-recursos/`
-- [ ] Glosario de términos en `5-glosario/`
-- [ ] Rúbrica de evaluación
 - [ ] Verificar coherencia con semanas anteriores
 - [ ] Probar que los Workers del starter/solution hacen `wrangler dev` sin errores
 - [ ] Verificar que no hay SQL Injection en queries D1
