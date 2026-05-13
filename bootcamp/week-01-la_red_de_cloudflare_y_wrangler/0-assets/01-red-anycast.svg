@@ -1,0 +1,130 @@
+<svg viewBox="0 0 820 420"
+  xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,'Segoe UI',Roboto,sans-serif">
+  <title>Red Anycast de Cloudflare — Serverless tradicional vs Workers</title>
+
+  <!-- Fondo -->
+  <rect width="820" height="420" fill="#1a1a2e"/>
+
+  <!-- ══ TÍTULO ══ -->
+  <text x="410" y="34" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="700">
+    Anycast: cada request llega al PoP más cercano
+  </text>
+
+  <!-- ══ PANEL IZQUIERDO — Serverless Tradicional ══ -->
+  <rect x="16" y="50" width="374" height="340" rx="8" fill="#16213e" stroke="#2D3748" stroke-width="1"/>
+  <text x="203" y="76" text-anchor="middle" fill="#A0AEC0" font-size="12" font-weight="600" letter-spacing="1">SERVERLESS TRADICIONAL</text>
+
+  <!-- Servidor único (us-east-1) -->
+  <rect x="258" y="96" width="108" height="48" rx="6" fill="#2D3748" stroke="#4A5568" stroke-width="1"/>
+  <text x="312" y="116" text-anchor="middle" fill="#A0AEC0" font-size="10" font-weight="600">us-east-1</text>
+  <text x="312" y="132" text-anchor="middle" fill="#718096" font-size="9">función Lambda</text>
+
+  <!-- Usuario EU -->
+  <circle cx="60" cy="140" r="18" fill="#2D3748" stroke="#4A5568" stroke-width="1.5"/>
+  <text x="60" y="136" text-anchor="middle" fill="#FFFFFF" font-size="14">👤</text>
+  <text x="60" y="168" text-anchor="middle" fill="#A0AEC0" font-size="9">EU</text>
+
+  <!-- Usuario LATAM -->
+  <circle cx="90" cy="260" r="18" fill="#2D3748" stroke="#4A5568" stroke-width="1.5"/>
+  <text x="90" y="256" text-anchor="middle" fill="#FFFFFF" font-size="14">👤</text>
+  <text x="90" y="288" text-anchor="middle" fill="#A0AEC0" font-size="9">LATAM</text>
+
+  <!-- Usuario APAC -->
+  <circle cx="60" cy="340" r="18" fill="#2D3748" stroke="#4A5568" stroke-width="1.5"/>
+  <text x="60" y="336" text-anchor="middle" fill="#FFFFFF" font-size="14">👤</text>
+  <text x="60" y="368" text-anchor="middle" fill="#A0AEC0" font-size="9">APAC</text>
+
+  <!-- Flechas largas → todos van al mismo servidor -->
+  <path d="M 78 134 C 160 110 220 110 258 115" stroke="#E53E3E" stroke-width="1.5" fill="none" stroke-dasharray="5,3" marker-end="url(#arrowRed)"/>
+  <path d="M 108 258 C 180 220 230 160 258 130" stroke="#E53E3E" stroke-width="1.5" fill="none" stroke-dasharray="5,3" marker-end="url(#arrowRed)"/>
+  <path d="M 78 338 C 160 300 230 200 258 140" stroke="#E53E3E" stroke-width="1.5" fill="none" stroke-dasharray="5,3" marker-end="url(#arrowRed)"/>
+
+  <!-- Etiquetas de latencia alta -->
+  <rect x="120" y="102" width="68" height="18" rx="4" fill="#2D2020"/>
+  <text x="154" y="115" text-anchor="middle" fill="#FC8181" font-size="10" font-weight="600">~240 ms</text>
+  <rect x="135" y="218" width="68" height="18" rx="4" fill="#2D2020"/>
+  <text x="169" y="231" text-anchor="middle" fill="#FC8181" font-size="10" font-weight="600">~190 ms</text>
+  <rect x="108" y="288" width="68" height="18" rx="4" fill="#2D2020"/>
+  <text x="142" y="301" text-anchor="middle" fill="#FC8181" font-size="10" font-weight="600">~320 ms</text>
+
+  <!-- Problema text -->
+  <text x="203" y="394" text-anchor="middle" fill="#FC8181" font-size="11">
+    Todos viajan al mismo datacenter
+  </text>
+
+  <!-- ══ DIVISOR ══ -->
+  <line x1="410" y1="50" x2="410" y2="390" stroke="#2D3748" stroke-width="1" stroke-dasharray="6,4"/>
+  <text x="410" y="420" text-anchor="middle" fill="#2D3748" font-size="11" font-weight="600">vs</text>
+
+  <!-- ══ PANEL DERECHO — Cloudflare Workers ══ -->
+  <rect x="430" y="50" width="374" height="340" rx="8" fill="#16213e" stroke="#F38020" stroke-width="1" opacity="0.6"/>
+  <text x="617" y="76" text-anchor="middle" fill="#F38020" font-size="12" font-weight="600" letter-spacing="1">CLOUDFLARE WORKERS (EDGE)</text>
+
+  <!-- PoP EU -->
+  <rect x="540" y="90" width="90" height="42" rx="6" fill="#F38020" opacity="0.15" stroke="#F38020" stroke-width="1"/>
+  <text x="585" y="107" text-anchor="middle" fill="#F38020" font-size="10" font-weight="700">PoP EU</text>
+  <text x="585" y="122" text-anchor="middle" fill="#A0AEC0" font-size="9">Worker</text>
+
+  <!-- PoP LATAM -->
+  <rect x="540" y="216" width="90" height="42" rx="6" fill="#F38020" opacity="0.15" stroke="#F38020" stroke-width="1"/>
+  <text x="585" y="233" text-anchor="middle" fill="#F38020" font-size="10" font-weight="700">PoP LATAM</text>
+  <text x="585" y="248" text-anchor="middle" fill="#A0AEC0" font-size="9">Worker</text>
+
+  <!-- PoP APAC -->
+  <rect x="540" y="318" width="90" height="42" rx="6" fill="#F38020" opacity="0.15" stroke="#F38020" stroke-width="1"/>
+  <text x="585" y="335" text-anchor="middle" fill="#F38020" font-size="10" font-weight="700">PoP APAC</text>
+  <text x="585" y="350" text-anchor="middle" fill="#A0AEC0" font-size="9">Worker</text>
+
+  <!-- Red interna Cloudflare (backbone) -->
+  <line x1="585" y1="132" x2="585" y2="216" stroke="#2D3748" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <line x1="585" y1="258" x2="585" y2="318" stroke="#2D3748" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <text x="608" y="178" fill="#4A5568" font-size="9">backbone</text>
+  <text x="608" y="292" fill="#4A5568" font-size="9">backbone</text>
+
+  <!-- Usuarios derecha -->
+  <circle cx="460" cy="111" r="18" fill="#2D3748" stroke="#4A5568" stroke-width="1.5"/>
+  <text x="460" y="107" text-anchor="middle" fill="#FFFFFF" font-size="14">👤</text>
+  <text x="460" y="139" text-anchor="middle" fill="#A0AEC0" font-size="9">EU</text>
+
+  <circle cx="460" cy="237" r="18" fill="#2D3748" stroke="#4A5568" stroke-width="1.5"/>
+  <text x="460" y="233" text-anchor="middle" fill="#FFFFFF" font-size="14">👤</text>
+  <text x="460" y="265" text-anchor="middle" fill="#A0AEC0" font-size="9">LATAM</text>
+
+  <circle cx="460" cy="339" r="18" fill="#2D3748" stroke="#4A5568" stroke-width="1.5"/>
+  <text x="460" y="335" text-anchor="middle" fill="#FFFFFF" font-size="14">👤</text>
+  <text x="460" y="367" text-anchor="middle" fill="#A0AEC0" font-size="9">APAC</text>
+
+  <!-- Flechas cortas → cada uno al PoP más cercano -->
+  <path d="M 478 111 L 540 111" stroke="#48BB78" stroke-width="2" fill="none" marker-end="url(#arrowGreen)"/>
+  <path d="M 478 237 L 540 237" stroke="#48BB78" stroke-width="2" fill="none" marker-end="url(#arrowGreen)"/>
+  <path d="M 478 339 L 540 339" stroke="#48BB78" stroke-width="2" fill="none" marker-end="url(#arrowGreen)"/>
+
+  <!-- Etiquetas de latencia baja -->
+  <rect x="484" y="95" width="50" height="18" rx="4" fill="#1a2e20"/>
+  <text x="509" y="108" text-anchor="middle" fill="#68D391" font-size="10" font-weight="600">~8 ms</text>
+  <rect x="484" y="221" width="50" height="18" rx="4" fill="#1a2e20"/>
+  <text x="509" y="234" text-anchor="middle" fill="#68D391" font-size="10" font-weight="600">~12 ms</text>
+  <rect x="484" y="323" width="50" height="18" rx="4" fill="#1a2e20"/>
+  <text x="509" y="336" text-anchor="middle" fill="#68D391" font-size="10" font-weight="600">~18 ms</text>
+
+  <!-- Dato clave -->
+  <rect x="640" y="168" width="148" height="56" rx="6" fill="#1a1a2e" stroke="#2D3748" stroke-width="1"/>
+  <text x="714" y="186" text-anchor="middle" fill="#F38020" font-size="18" font-weight="800">300+</text>
+  <text x="714" y="202" text-anchor="middle" fill="#A0AEC0" font-size="10">ciudades</text>
+  <text x="714" y="216" text-anchor="middle" fill="#718096" font-size="9">100 países · Anycast BGP</text>
+
+  <!-- Beneficio texto -->
+  <text x="617" y="394" text-anchor="middle" fill="#68D391" font-size="11">
+    El mismo Worker corre en el PoP más cercano
+  </text>
+
+  <!-- ══ DEFS — markers ══ -->
+  <defs>
+    <marker id="arrowRed" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#E53E3E"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#48BB78"/>
+    </marker>
+  </defs>
+</svg>

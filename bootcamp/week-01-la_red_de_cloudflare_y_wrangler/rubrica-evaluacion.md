@@ -16,19 +16,34 @@
 
 ## 🧠 Conocimiento (30%)
 
-> 🚧 Criterios en desarrollo.
+| Criterio | Puntos |
+|----------|--------|
+| Explica correctamente qué es Anycast y cómo afecta la latencia | 25 |
+| Describe la diferencia entre `wrangler dev` y `wrangler dev --remote` | 25 |
+| Identifica qué APIs están disponibles en el runtime de Workers | 25 |
+| Explica para qué sirve `ctx.waitUntil()` | 25 |
 
 ---
 
 ## 💪 Desempeño (40%)
 
-> 🚧 Criterios en desarrollo.
+| Criterio | Puntos |
+|----------|--------|
+| Ejercicio 01 deployado y rutas responden correctamente | 25 |
+| Ejercicio 02 deployado con Hono, middleware y 404 funcionando | 25 |
+| `wrangler.jsonc` con `compatibility_date` exacta y `nodejs_compat_v2` | 25 |
+| `package.json` sin rangos de versión (`^`, `~`) | 25 |
 
 ---
 
 ## 📦 Producto (30%)
 
-> 🚧 Criterios en desarrollo.
+| Criterio | Puntos |
+|----------|--------|
+| Worker deployado en cuenta propia con URL de producción | 30 |
+| Rutas adaptadas al dominio asignado (no nombres genéricos) | 30 |
+| Datos de prueba reales (min 10 items, no "item1", "item2") | 20 |
+| Middleware de logging y handler `notFound` implementados | 20 |
 
 ---
 
