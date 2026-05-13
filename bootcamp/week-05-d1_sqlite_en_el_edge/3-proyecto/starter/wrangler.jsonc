@@ -1,0 +1,14 @@
+{
+  "name": "proyecto-semana-05",
+  "main": "src/index.ts",
+  "compatibility_date": "2024-09-23",
+  "compatibility_flags": ["nodejs_compat_v2"],
+  "d1_databases": [
+    {
+      "binding": "CATALOG_DB",
+      "database_name": "catalog-db",
+      "database_id": "REPLACE_WITH_YOUR_D1_ID",
+      "migrations_dir": "migrations"
+    }
+  ]
+}
