@@ -6,7 +6,10 @@
 
 ## 🎯 Objetivos
 
-> 🚧 Contenido en desarrollo.
+- Almacenar y recuperar datos en **Workers KV** con llaves prefijadas
+- Controlar el ciclo de vida de entradas con **TTL** y **metadata**
+- Cachear respuestas HTTP con **Cache API** y `caches.default`
+- Elegir entre KV y Cache API según el patrón de acceso al dato
 
 ---
 

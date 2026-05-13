@@ -1,0 +1,12 @@
+{
+  "name": "ejercicio-01-kv-crud",
+  "main": "src/index.ts",
+  "compatibility_date": "2024-09-23",
+  "compatibility_flags": ["nodejs_compat_v2"],
+  "kv_namespaces": [
+    {
+      "binding": "COMICS_KV",
+      "id": "REPLACE_WITH_YOUR_KV_ID"
+    }
+  ]
+}
