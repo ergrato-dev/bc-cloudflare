@@ -36,6 +36,19 @@ applyTo: "bootcamp/**/starter/**,bootcamp/**/solution/**"
 - ❌ NUNCA `^`, `~`, `>=`, `*`, `latest`
 - ✅ SIEMPRE versión exacta sin prefijos
 - Consultar versión actual: `pnpm info <pkg> version`
+- Instalar siempre con: `pnpm add <pkg>@X.Y.Z`
+- `.npmrc` del proyecto ya incluye `save-exact=true` — no requiere flag global
+
+## Auditoría CVE — obligatoria antes de instalar
+
+Ejecutar **antes** de agregar cualquier dependencia nueva:
+
+```sh
+pnpm audit --audit-level moderate
+```
+
+- Si hay vulnerabilidades `moderate`, `high` o `critical`: no instalar hasta resolver
+- Reportar al instructor si un paquete requerido tiene CVEs sin fix disponible
 
 ## tsconfig.json — strict siempre
 
