@@ -1,0 +1,115 @@
+<svg viewBox="0 0 820 380"
+  xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,'Segoe UI',Roboto,sans-serif">
+  <title>Estructura de un Worker — Handlers fetch, scheduled y email</title>
+
+  <!-- Fondo -->
+  <rect width="820" height="380" fill="#1a1a2e"/>
+
+  <!-- Título -->
+  <text x="410" y="32" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="700">
+    Un Worker — tres puntos de entrada
+  </text>
+
+  <!-- ══ ENTRADAS (izquierda) ══ -->
+
+  <!-- HTTP Request -->
+  <rect x="20" y="56" width="154" height="68" rx="8" fill="#16213e" stroke="#2D3748" stroke-width="1"/>
+  <text x="97" y="78" text-anchor="middle" fill="#A0AEC0" font-size="10" font-weight="600" letter-spacing="1">HTTP REQUEST</text>
+  <text x="97" y="98" text-anchor="middle" fill="#FFFFFF" font-size="12">GET / POST / PUT …</text>
+  <text x="97" y="114" text-anchor="middle" fill="#718096" font-size="10">fetch event</text>
+
+  <!-- Cron Trigger -->
+  <rect x="20" y="156" width="154" height="68" rx="8" fill="#16213e" stroke="#2D3748" stroke-width="1"/>
+  <text x="97" y="178" text-anchor="middle" fill="#A0AEC0" font-size="10" font-weight="600" letter-spacing="1">CRON TRIGGER</text>
+  <text x="97" y="198" text-anchor="middle" fill="#FFFFFF" font-size="12">*/5 * * * *</text>
+  <text x="97" y="214" text-anchor="middle" fill="#718096" font-size="10">scheduled event</text>
+
+  <!-- Email -->
+  <rect x="20" y="256" width="154" height="68" rx="8" fill="#16213e" stroke="#2D3748" stroke-width="1"/>
+  <text x="97" y="278" text-anchor="middle" fill="#A0AEC0" font-size="10" font-weight="600" letter-spacing="1">EMAIL INBOUND</text>
+  <text x="97" y="298" text-anchor="middle" fill="#FFFFFF" font-size="12">user@domain.com</text>
+  <text x="97" y="314" text-anchor="middle" fill="#718096" font-size="10">email event</text>
+
+  <!-- Flechas entrada → Worker -->
+  <path d="M 174 90 L 240 90" stroke="#F38020" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <path d="M 174 190 L 240 190" stroke="#F38020" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <path d="M 174 290 L 240 290" stroke="#F38020" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+
+  <!-- ══ WORKER RUNTIME (centro) ══ -->
+  <rect x="240" y="44" width="334" height="304" rx="10" fill="#16213e" stroke="#F38020" stroke-width="2"/>
+  <text x="407" y="66" text-anchor="middle" fill="#F38020" font-size="12" font-weight="700" letter-spacing="1">
+    WORKER RUNTIME  ·  V8 Isolate
+  </text>
+  <line x1="252" y1="72" x2="562" y2="72" stroke="#2D3748" stroke-width="1"/>
+
+  <!-- export default { ... } -->
+  <text x="260" y="95" fill="#718096" font-size="11" font-family="'Fira Code',monospace">export default {</text>
+
+  <!-- fetch handler -->
+  <rect x="256" y="102" width="310" height="64" rx="6" fill="#1a1a2e" stroke="#2D3748" stroke-width="1"/>
+  <text x="272" y="120" fill="#F38020" font-size="11" font-family="'Fira Code',monospace">  async fetch(</text>
+  <text x="288" y="136" fill="#A0AEC0" font-size="11" font-family="'Fira Code',monospace">    req: Request, env: Env, ctx: Ctx</text>
+  <text x="272" y="152" fill="#F38020" font-size="11" font-family="'Fira Code',monospace">  ): Promise&lt;Response&gt; { … }</text>
+  <rect x="540" y="106" width="64" height="20" rx="4" fill="#F38020" opacity="0.15" stroke="#F38020" stroke-width="0.8"/>
+  <text x="572" y="120" text-anchor="middle" fill="#F38020" font-size="9" font-weight="600">fetch()</text>
+
+  <!-- scheduled handler -->
+  <rect x="256" y="174" width="310" height="64" rx="6" fill="#1a1a2e" stroke="#2D3748" stroke-width="1"/>
+  <text x="272" y="192" fill="#68D391" font-size="11" font-family="'Fira Code',monospace">  async scheduled(</text>
+  <text x="288" y="208" fill="#A0AEC0" font-size="11" font-family="'Fira Code',monospace">    ctrl: ScheduledController, env: Env</text>
+  <text x="272" y="224" fill="#68D391" font-size="11" font-family="'Fira Code',monospace">  ): Promise&lt;void&gt; { … }</text>
+  <rect x="540" y="178" width="64" height="20" rx="4" fill="#68D391" opacity="0.15" stroke="#68D391" stroke-width="0.8"/>
+  <text x="572" y="192" text-anchor="middle" fill="#68D391" font-size="9" font-weight="600">scheduled()</text>
+
+  <!-- email handler -->
+  <rect x="256" y="246" width="310" height="64" rx="6" fill="#1a1a2e" stroke="#2D3748" stroke-width="1"/>
+  <text x="272" y="264" fill="#76E4F7" font-size="11" font-family="'Fira Code',monospace">  async email(</text>
+  <text x="288" y="280" fill="#A0AEC0" font-size="11" font-family="'Fira Code',monospace">    msg: EmailMessage, env: Env</text>
+  <text x="272" y="296" fill="#76E4F7" font-size="11" font-family="'Fira Code',monospace">  ): Promise&lt;void&gt; { … }</text>
+  <rect x="540" y="250" width="64" height="20" rx="4" fill="#76E4F7" opacity="0.15" stroke="#76E4F7" stroke-width="0.8"/>
+  <text x="572" y="264" text-anchor="middle" fill="#76E4F7" font-size="9" font-weight="600">email()</text>
+
+  <text x="260" y="326" fill="#718096" font-size="11" font-family="'Fira Code',monospace">}</text>
+
+  <!-- ══ SALIDAS (derecha) ══ -->
+
+  <!-- Flechas Worker → salida -->
+  <path d="M 574 134 L 640 90" stroke="#F38020" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <path d="M 574 206 L 640 240" stroke="#68D391" stroke-width="1.5" fill="none" marker-end="url(#arrG)"/>
+  <path d="M 574 278 L 640 310" stroke="#76E4F7" stroke-width="1.5" fill="none" marker-end="url(#arrB)"/>
+
+  <!-- Response HTTP -->
+  <rect x="640" y="60" width="160" height="60" rx="8" fill="#16213e" stroke="#F38020" stroke-width="1"/>
+  <text x="720" y="82" text-anchor="middle" fill="#F38020" font-size="11" font-weight="600">Response HTTP</text>
+  <text x="720" y="98" text-anchor="middle" fill="#A0AEC0" font-size="10">200 OK · JSON · HTML</text>
+  <text x="720" y="112" text-anchor="middle" fill="#718096" font-size="9">al cliente</text>
+
+  <!-- Acción async -->
+  <rect x="640" y="210" width="160" height="60" rx="8" fill="#16213e" stroke="#68D391" stroke-width="1"/>
+  <text x="720" y="232" text-anchor="middle" fill="#68D391" font-size="11" font-weight="600">Acción async</text>
+  <text x="720" y="248" text-anchor="middle" fill="#A0AEC0" font-size="10">D1, KV, R2, Queue …</text>
+  <text x="720" y="262" text-anchor="middle" fill="#718096" font-size="9">no retorna Response</text>
+
+  <!-- Forward / reply -->
+  <rect x="640" y="280" width="160" height="60" rx="8" fill="#16213e" stroke="#76E4F7" stroke-width="1"/>
+  <text x="720" y="302" text-anchor="middle" fill="#76E4F7" font-size="11" font-weight="600">Forward / Reply</text>
+  <text x="720" y="318" text-anchor="middle" fill="#A0AEC0" font-size="10">reenviar · responder</text>
+  <text x="720" y="332" text-anchor="middle" fill="#718096" font-size="9">al remitente</text>
+
+  <!-- Nota inferior -->
+  <text x="410" y="362" text-anchor="middle" fill="#718096" font-size="10">
+    Un mismo archivo · tres eventos · un único export default { }
+  </text>
+
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#F38020"/>
+    </marker>
+    <marker id="arrG" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#68D391"/>
+    </marker>
+    <marker id="arrB" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#76E4F7"/>
+    </marker>
+  </defs>
+</svg>

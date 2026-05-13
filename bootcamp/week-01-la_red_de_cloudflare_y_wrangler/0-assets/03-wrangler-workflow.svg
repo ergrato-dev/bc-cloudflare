@@ -1,0 +1,123 @@
+<svg viewBox="0 0 820 360"
+  xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,'Segoe UI',Roboto,sans-serif">
+  <title>Flujo de desarrollo con Wrangler 3 — dev, deploy, tail</title>
+
+  <!-- Fondo -->
+  <rect width="820" height="360" fill="#1a1a2e"/>
+
+  <!-- Título -->
+  <text x="410" y="30" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="700">
+    Wrangler 3 — ciclo de desarrollo
+  </text>
+
+  <!-- ══ DEVELOPER (origen común) ══ -->
+  <rect x="20" y="130" width="130" height="100" rx="8" fill="#16213e" stroke="#2D3748" stroke-width="1.5"/>
+  <text x="85" y="160" text-anchor="middle" fill="#FFFFFF" font-size="22">💻</text>
+  <text x="85" y="182" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="600">Developer</text>
+  <text x="85" y="198" text-anchor="middle" fill="#718096" font-size="10">src/index.ts</text>
+  <text x="85" y="212" text-anchor="middle" fill="#718096" font-size="10">wrangler.jsonc</text>
+
+  <!-- ══ CARRIL SUPERIOR — wrangler dev ══ -->
+  <!-- Flecha dev -->
+  <path d="M 150 155 L 270 110" stroke="#F38020" stroke-width="1.5" fill="none" marker-end="url(#aO)"/>
+  <rect x="158" y="120" width="108" height="22" rx="4" fill="#16213e" stroke="#F38020" stroke-width="0.8"/>
+  <text x="212" y="135" text-anchor="middle" fill="#F38020" font-size="11" font-family="'Fira Code',monospace">wrangler dev</text>
+
+  <!-- Miniflare box -->
+  <rect x="270" y="60" width="200" height="100" rx="8" fill="#16213e" stroke="#2D3748" stroke-width="1"/>
+  <text x="370" y="82" text-anchor="middle" fill="#A0AEC0" font-size="10" font-weight="600" letter-spacing="1">LOCAL SANDBOX</text>
+  <text x="370" y="100" text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="700">Miniflare</text>
+  <text x="370" y="118" text-anchor="middle" fill="#718096" font-size="10">V8 Isolate local</text>
+  <text x="370" y="134" text-anchor="middle" fill="#718096" font-size="10">KV · D1 · R2 simulados</text>
+  <text x="370" y="150" text-anchor="middle" fill="#718096" font-size="10">http://localhost:8787</text>
+
+  <!-- Flecha hot-reload -->
+  <path d="M 370 60 C 370 44 212 44 212 60" stroke="#4A5568" stroke-width="1" fill="none" stroke-dasharray="4,3" marker-end="url(#aG)"/>
+  <rect x="256" y="30" width="108" height="18" rx="4" fill="#1a1a2e"/>
+  <text x="310" y="43" text-anchor="middle" fill="#68D391" font-size="10">hot-reload instant</text>
+
+  <!-- ══ CARRIL CENTRAL — wrangler deploy ══ -->
+  <!-- Flecha deploy -->
+  <path d="M 150 180 L 270 180" stroke="#F38020" stroke-width="1.5" fill="none" marker-end="url(#aO)"/>
+  <rect x="160" y="164" width="108" height="22" rx="4" fill="#16213e" stroke="#F38020" stroke-width="0.8"/>
+  <text x="214" y="179" text-anchor="middle" fill="#F38020" font-size="11" font-family="'Fira Code',monospace">wrangler deploy</text>
+
+  <!-- Cloudflare network -->
+  <rect x="270" y="148" width="200" height="64" rx="8" fill="#F38020" opacity="0.1" stroke="#F38020" stroke-width="1.5"/>
+  <text x="370" y="170" text-anchor="middle" fill="#F38020" font-size="12" font-weight="700">Cloudflare Network</text>
+  <text x="370" y="188" text-anchor="middle" fill="#A0AEC0" font-size="10">300+ PoPs · Worker activo</text>
+  <text x="370" y="203" text-anchor="middle" fill="#718096" font-size="10">*.workers.dev listo en segundos</text>
+
+  <!-- PoPs mini -->
+  <circle cx="490" cy="170" r="5" fill="#F38020"/>
+  <circle cx="504" cy="158" r="4" fill="#F38020" opacity="0.7"/>
+  <circle cx="504" cy="182" r="4" fill="#F38020" opacity="0.7"/>
+  <circle cx="518" cy="165" r="3.5" fill="#F38020" opacity="0.5"/>
+  <circle cx="518" cy="175" r="3" fill="#F38020" opacity="0.4"/>
+  <line x1="490" y1="170" x2="504" y2="158" stroke="#F38020" stroke-width="0.8" opacity="0.4"/>
+  <line x1="490" y1="170" x2="504" y2="182" stroke="#F38020" stroke-width="0.8" opacity="0.4"/>
+  <line x1="504" y1="158" x2="518" y2="165" stroke="#F38020" stroke-width="0.8" opacity="0.3"/>
+  <line x1="504" y1="182" x2="518" y2="175" stroke="#F38020" stroke-width="0.8" opacity="0.3"/>
+
+  <!-- ══ CARRIL INFERIOR — wrangler tail ══ -->
+  <!-- Flecha tail -->
+  <path d="M 150 205 L 270 250" stroke="#76E4F7" stroke-width="1.5" fill="none" marker-end="url(#aB)"/>
+  <rect x="158" y="225" width="108" height="22" rx="4" fill="#16213e" stroke="#76E4F7" stroke-width="0.8"/>
+  <text x="212" y="240" text-anchor="middle" fill="#76E4F7" font-size="11" font-family="'Fira Code',monospace">wrangler tail</text>
+
+  <!-- Log stream box -->
+  <rect x="270" y="230" width="200" height="100" rx="8" fill="#16213e" stroke="#2D3748" stroke-width="1"/>
+  <text x="370" y="252" text-anchor="middle" fill="#A0AEC0" font-size="10" font-weight="600" letter-spacing="1">LOG STREAM EN VIVO</text>
+  <text x="283" y="272" fill="#68D391" font-size="10" font-family="'Fira Code',monospace">▶ GET /api/items 200 4ms</text>
+  <text x="283" y="288" fill="#FC8181" font-size="10" font-family="'Fira Code',monospace">▶ POST /api/items 422 2ms</text>
+  <text x="283" y="304" fill="#68D391" font-size="10" font-family="'Fira Code',monospace">▶ GET /health 200 1ms</text>
+  <text x="283" y="320" fill="#A0AEC0" font-size="10" font-family="'Fira Code',monospace">▶ _</text>
+
+  <!-- ══ COMANDOS EXTRA (derecha) ══ -->
+  <rect x="510" y="60" width="290" height="280" rx="8" fill="#16213e" stroke="#2D3748" stroke-width="1"/>
+  <text x="655" y="82" text-anchor="middle" fill="#A0AEC0" font-size="10" font-weight="600" letter-spacing="1">
+    OTROS COMANDOS CLAVE
+  </text>
+  <line x1="522" y1="88" x2="788" y2="88" stroke="#2D3748" stroke-width="0.8"/>
+
+  <!-- Comandos adicionales en tabla visual -->
+  <text x="526" y="112" fill="#F38020" font-size="11" font-family="'Fira Code',monospace">wrangler secret put KEY</text>
+  <text x="526" y="128" fill="#718096" font-size="10">guarda secreto cifrado en Cloudflare</text>
+
+  <line x1="522" y1="138" x2="788" y2="138" stroke="#2D3748" stroke-width="0.5" opacity="0.5"/>
+
+  <text x="526" y="158" fill="#F38020" font-size="11" font-family="'Fira Code',monospace">wrangler d1 execute</text>
+  <text x="526" y="174" fill="#718096" font-size="10">corre SQL en base D1</text>
+
+  <line x1="522" y1="184" x2="788" y2="184" stroke="#2D3748" stroke-width="0.5" opacity="0.5"/>
+
+  <text x="526" y="204" fill="#F38020" font-size="11" font-family="'Fira Code',monospace">wrangler kv key list</text>
+  <text x="526" y="220" fill="#718096" font-size="10">inspecciona claves de KV namespace</text>
+
+  <line x1="522" y1="230" x2="788" y2="230" stroke="#2D3748" stroke-width="0.5" opacity="0.5"/>
+
+  <text x="526" y="250" fill="#F38020" font-size="11" font-family="'Fira Code',monospace">wrangler types</text>
+  <text x="526" y="266" fill="#718096" font-size="10">genera worker-configuration.d.ts</text>
+
+  <line x1="522" y1="276" x2="788" y2="276" stroke="#2D3748" stroke-width="0.5" opacity="0.5"/>
+
+  <text x="526" y="296" fill="#F38020" font-size="11" font-family="'Fira Code',monospace">wrangler whoami</text>
+  <text x="526" y="312" fill="#718096" font-size="10">muestra cuenta autenticada</text>
+
+  <!-- Nota inferior -->
+  <text x="410" y="350" text-anchor="middle" fill="#4A5568" font-size="10">
+    wrangler dev usa Miniflare — no consume cuota de Workers Free
+  </text>
+
+  <defs>
+    <marker id="aO" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#F38020"/>
+    </marker>
+    <marker id="aG" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#68D391"/>
+    </marker>
+    <marker id="aB" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#76E4F7"/>
+    </marker>
+  </defs>
+</svg>
