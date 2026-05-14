@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 460" width="860" height="460" font-family="Inter, Roboto, system-ui, sans-serif">
+
+  <!-- Fondo principal -->
+  <rect width="860" height="460" fill="#1a1a2e"/>
+
+  <!-- Título -->
+  <text x="430" y="34" text-anchor="middle" font-size="18" font-weight="700" fill="#FFFFFF">Arquitectura Queues — Semana 07</text>
+  <text x="430" y="54" text-anchor="middle" font-size="13" fill="#A0AEC0">Worker Productor · Queue · Worker Consumidor</text>
+
+  <!-- ======= CLIENTE ======= -->
+  <rect x="30" y="130" width="130" height="60" rx="8" fill="#16213e" stroke="#2D3748" stroke-width="1.5"/>
+  <text x="95" y="155" text-anchor="middle" font-size="13" font-weight="600" fill="#FFFFFF">Cliente</text>
+  <text x="95" y="174" text-anchor="middle" font-size="11" fill="#A0AEC0">POST /events</text>
+
+  <!-- ======= WORKER PRODUCTOR ======= -->
+  <rect x="220" y="110" width="180" height="100" rx="10" fill="#F38020"/>
+  <text x="310" y="138" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">Worker Productor</text>
+  <text x="310" y="158" text-anchor="middle" font-size="11" fill="#FFFFFF">QUEUE.send(body)</text>
+  <text x="310" y="175" text-anchor="middle" font-size="11" fill="#FFFFFF">QUEUE.sendBatch([...])</text>
+  <text x="310" y="192" text-anchor="middle" font-size="11" fill="#FFFFFF">→ 202 Accepted</text>
+
+  <!-- ======= QUEUE ======= -->
+  <rect x="460" y="100" width="160" height="120" rx="10" fill="#16213e" stroke="#F38020" stroke-width="2"/>
+  <text x="540" y="128" text-anchor="middle" font-size="14" font-weight="700" fill="#F38020">Queue</text>
+  <line x1="476" y1="138" x2="604" y2="138" stroke="#2D3748" stroke-width="1"/>
+  <text x="540" y="156" text-anchor="middle" font-size="11" fill="#A0AEC0">msg 1 · msg 2 · msg 3</text>
+  <text x="540" y="174" text-anchor="middle" font-size="11" fill="#A0AEC0">at-least-once</text>
+  <text x="540" y="192" text-anchor="middle" font-size="11" fill="#A0AEC0">max 128 KB / msg</text>
+  <text x="540" y="210" text-anchor="middle" font-size="11" fill="#A0AEC0">TTL 4 días</text>
+
+  <!-- ======= WORKER CONSUMIDOR ======= -->
+  <rect x="690" y="110" width="150" height="100" rx="10" fill="#003682" stroke="#2D3748" stroke-width="1.5"/>
+  <text x="765" y="138" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">Worker</text>
+  <text x="765" y="155" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">Consumidor</text>
+  <text x="765" y="175" text-anchor="middle" font-size="11" fill="#A0AEC0">queue(batch)</text>
+  <text x="765" y="192" text-anchor="middle" font-size="11" fill="#A0AEC0">msg.ack() / retry()</text>
+
+  <!-- ======= DLQ ======= -->
+  <rect x="690" y="260" width="150" height="70" rx="10" fill="#16213e" stroke="#2D3748" stroke-width="1.5"/>
+  <text x="765" y="285" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">DLQ</text>
+  <text x="765" y="305" text-anchor="middle" font-size="11" fill="#A0AEC0">Dead Letter Queue</text>
+  <text x="765" y="320" text-anchor="middle" font-size="11" fill="#A0AEC0">max_retries agotados</text>
+
+  <!-- ======= FLECHAS ======= -->
+
+  <!-- Cliente → Productor -->
+  <line x1="160" y1="160" x2="218" y2="160" stroke="#F38020" stroke-width="2" marker-end="url(#arr-o)"/>
+  <text x="188" y="153" text-anchor="middle" font-size="10" fill="#F38020">HTTP</text>
+
+  <!-- Productor → Queue -->
+  <line x1="400" y1="160" x2="458" y2="160" stroke="#F38020" stroke-width="2" marker-end="url(#arr-o)"/>
+  <text x="428" y="152" text-anchor="middle" font-size="10" fill="#F38020">send()</text>
+
+  <!-- Queue → Consumidor -->
+  <line x1="620" y1="160" x2="688" y2="160" stroke="#FFFFFF" stroke-width="2" marker-end="url(#arr-w)"/>
+  <text x="653" y="152" text-anchor="middle" font-size="10" fill="#FFFFFF">batch</text>
+
+  <!-- Consumidor → DLQ (falla) -->
+  <line x1="765" y1="210" x2="765" y2="258" stroke="#A0AEC0" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arr-g)"/>
+  <text x="784" y="238" font-size="10" fill="#A0AEC0">falla</text>
+
+  <!-- Reintentos indicador -->
+  <path d="M 688 175 Q 655 240 688 255" stroke="#A0AEC0" stroke-width="1.5" fill="none" stroke-dasharray="4,3" marker-end="url(#arr-g)"/>
+  <text x="634" y="220" font-size="10" fill="#A0AEC0">retry</text>
+
+  <!-- ======= LEYENDA ======= -->
+  <rect x="30" y="310" width="400" height="110" rx="8" fill="#16213e" stroke="#2D3748" stroke-width="1.5"/>
+  <text x="50" y="334" font-size="12" font-weight="700" fill="#FFFFFF">wrangler.jsonc — bindings</text>
+
+  <text x="50" y="356" font-size="11" fill="#A0AEC0">producers: [{ queue: "my-queue", binding: "MY_QUEUE" }]</text>
+  <text x="50" y="374" font-size="11" fill="#A0AEC0">consumers: [{ queue: "my-queue", max_batch_size: 10,</text>
+  <text x="50" y="392" font-size="11" fill="#A0AEC0">              max_retries: 3, dead_letter_queue: "my-dlq" }]</text>
+  <text x="50" y="410" font-size="11" fill="#A0AEC0">Mismo Worker puede ser productor Y consumidor</text>
+
+  <!-- ======= NOTA CONCURRENCIA ======= -->
+  <rect x="460" y="310" width="370" height="110" rx="8" fill="#16213e" stroke="#2D3748" stroke-width="1.5"/>
+  <text x="480" y="334" font-size="12" font-weight="700" fill="#FFFFFF">Ciclo de vida del mensaje</text>
+  <text x="480" y="356" font-size="11" fill="#A0AEC0">1. Productor → send() → encolado</text>
+  <text x="480" y="374" font-size="11" fill="#A0AEC0">2. Cloudflare → entrega batch al consumidor</text>
+  <text x="480" y="392" font-size="11" fill="#A0AEC0">3. Consumidor → ack() = éxito · retry() = reintento</text>
+  <text x="480" y="410" font-size="11" fill="#A0AEC0">4. Sin ack tras max_retries → va a DLQ</text>
+
+  <!-- ======= MARCADORES ======= -->
+  <defs>
+    <marker id="arr-o" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#F38020"/>
+    </marker>
+    <marker id="arr-w" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#FFFFFF"/>
+    </marker>
+    <marker id="arr-g" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#A0AEC0"/>
+    </marker>
+  </defs>
+
+</svg>

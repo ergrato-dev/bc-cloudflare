@@ -6,7 +6,10 @@
 
 ## 🎯 Objetivos
 
-> 🚧 Contenido en desarrollo.
+1. Crear una Queue y declarar bindings de productor y consumidor en `wrangler.jsonc`
+2. Enviar mensajes individuales y en batch desde un Worker productor
+3. Procesar mensajes con el handler `queue` usando `ack()`, `retry()` y `ackAll()`
+4. Configurar Dead Letter Queue (DLQ) para mensajes que fallan tras reintentos
 
 ---
 

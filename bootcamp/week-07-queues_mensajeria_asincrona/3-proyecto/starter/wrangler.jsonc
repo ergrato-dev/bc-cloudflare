@@ -1,0 +1,38 @@
+{
+  "name": "queues-proyecto-starter",
+  "main": "src/index.ts",
+  "compatibility_date": "2024-09-23",
+  "compatibility_flags": ["nodejs_compat_v2"],
+  "queues": {
+    "producers": [
+      {
+        // TODO: renombra esta queue con el nombre de tu dominio
+        // Ejemplo: "veterinary-events-queue"
+        "queue": "domain-events-queue",
+        "binding": "EVENTS_QUEUE"
+      }
+    ],
+    "consumers": [
+      {
+        "queue": "domain-events-queue",
+        "max_batch_size": 10,
+        "max_batch_timeout": 5,
+        "max_retries": 3,
+        "dead_letter_queue": "domain-events-dlq"
+      },
+      {
+        "queue": "domain-events-dlq",
+        "max_batch_size": 10,
+        "max_batch_timeout": 5
+      }
+    ]
+  },
+  "kv_namespaces": [
+    {
+      // TODO: crea el KV namespace con: wrangler kv namespace create EVENTS_KV
+      // y reemplaza el ID
+      "binding": "EVENTS_KV",
+      "id": "REPLACE_WITH_YOUR_KV_ID"
+    }
+  ]
+}
