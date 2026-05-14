@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480" font-family="Inter, Roboto, system-ui, sans-serif">
+
+  <!-- Fondo principal -->
+  <rect width="800" height="480" fill="#1a1a2e"/>
+
+  <!-- Título -->
+  <text x="400" y="34" text-anchor="middle" font-size="17" font-weight="700" fill="#FFFFFF">Flujo de Token Temporal — R2 + KV</text>
+  <text x="400" y="54" text-anchor="middle" font-size="12" fill="#A0AEC0">Acceso controlado sin URLs públicas permanentes</text>
+
+  <!-- ======= PASO 1: Solicitar token ======= -->
+  <rect x="30" y="80" width="740" height="56" rx="8" fill="#16213e" stroke="#2D3748" stroke-width="1.5"/>
+  <text x="46" y="104" font-size="12" font-weight="700" fill="#F38020">Paso 1</text>
+  <text x="46" y="124" font-size="11" fill="#A0AEC0">Cliente →</text>
+  <text x="110" y="124" font-size="11" fill="#FFFFFF">POST /files/:key/token?ttl=3600</text>
+  <text x="400" y="124" font-size="11" fill="#A0AEC0">→ Worker verifica que el objeto exista con</text>
+  <text x="610" y="124" font-size="11" fill="#FFFFFF">BUCKET.head(key)</text>
+
+  <!-- ======= PASO 2: Generar y guardar token ======= -->
+  <rect x="30" y="152" width="740" height="56" rx="8" fill="#16213e" stroke="#2D3748" stroke-width="1.5"/>
+  <text x="46" y="176" font-size="12" font-weight="700" fill="#F38020">Paso 2</text>
+  <text x="46" y="196" font-size="11" fill="#A0AEC0">Worker →</text>
+  <text x="110" y="196" font-size="11" fill="#FFFFFF">token = crypto.randomUUID()</text>
+  <text x="400" y="196" font-size="11" fill="#A0AEC0">→ guarda en KV:</text>
+  <text x="500" y="196" font-size="11" fill="#FFFFFF">TOKENS.put("token:{uuid}", key, { expirationTtl: 3600 })</text>
+
+  <!-- ======= PASO 3: Respuesta al cliente ======= -->
+  <rect x="30" y="224" width="740" height="56" rx="8" fill="#16213e" stroke="#2D3748" stroke-width="1.5"/>
+  <text x="46" y="248" font-size="12" font-weight="700" fill="#F38020">Paso 3</text>
+  <text x="46" y="268" font-size="11" fill="#A0AEC0">Worker →</text>
+  <text x="110" y="268" font-size="11" fill="#FFFFFF">{ url: "/download/{uuid}", expiresIn: 3600 }</text>
+  <text x="440" y="268" font-size="11" fill="#A0AEC0">→ Cliente guarda la URL temporal</text>
+
+  <!-- ======= PASO 4: Usar el token ======= -->
+  <rect x="30" y="296" width="740" height="56" rx="8" fill="#16213e" stroke="#2D3748" stroke-width="1.5"/>
+  <text x="46" y="320" font-size="12" font-weight="700" fill="#F38020">Paso 4</text>
+  <text x="46" y="340" font-size="11" fill="#A0AEC0">Cliente →</text>
+  <text x="110" y="340" font-size="11" fill="#FFFFFF">GET /download/{uuid}</text>
+  <text x="340" y="340" font-size="11" fill="#A0AEC0">→ Worker consulta:</text>
+  <text x="450" y="340" font-size="11" fill="#FFFFFF">key = TOKENS.get("token:{uuid}")</text>
+
+  <!-- ======= PASO 5: Decisión ======= -->
+  <rect x="30" y="368" width="340" height="72" rx="8" fill="#16213e" stroke="#F38020" stroke-width="1.5"/>
+  <text x="46" y="392" font-size="12" font-weight="700" fill="#F38020">Token válido</text>
+  <text x="46" y="412" font-size="11" fill="#A0AEC0">BUCKET.get(key) → Response con</text>
+  <text x="46" y="430" font-size="11" fill="#A0AEC0">writeHttpMetadata(headers) + body</text>
+
+  <rect x="390" y="368" width="380" height="72" rx="8" fill="#16213e" stroke="#2D3748" stroke-width="1.5"/>
+  <text x="406" y="392" font-size="12" font-weight="700" fill="#A0AEC0">Token expirado / inválido</text>
+  <text x="406" y="412" font-size="11" fill="#A0AEC0">KV devuelve null → Worker responde</text>
+  <text x="406" y="430" font-size="11" fill="#FFFFFF">403 Forbidden</text>
+
+  <!-- Flechas entre pasos -->
+  <line x1="400" y1="136" x2="400" y2="150" stroke="#F38020" stroke-width="1.5" marker-end="url(#arrow-tok)"/>
+  <line x1="400" y1="208" x2="400" y2="222" stroke="#F38020" stroke-width="1.5" marker-end="url(#arrow-tok)"/>
+  <line x1="400" y1="280" x2="400" y2="294" stroke="#F38020" stroke-width="1.5" marker-end="url(#arrow-tok)"/>
+  <line x1="400" y1="352" x2="400" y2="366" stroke="#F38020" stroke-width="1.5" marker-end="url(#arrow-tok)"/>
+
+  <!-- ======= MARCADORES ======= -->
+  <defs>
+    <marker id="arrow-tok" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#F38020"/>
+    </marker>
+  </defs>
+
+</svg>

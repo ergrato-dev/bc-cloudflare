@@ -6,7 +6,10 @@
 
 ## 🎯 Objetivos
 
-> 🚧 Contenido en desarrollo.
+1. Crear un bucket R2 y declarar el binding en `wrangler.jsonc`
+2. Subir, descargar, listar y eliminar objetos desde un Worker
+3. Usar `customMetadata` y `httpMetadata` para enriquecer los objetos
+4. Implementar acceso controlado a archivos con tokens temporales en KV
 
 ---
 

@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" width="800" height="460" font-family="Inter, Roboto, system-ui, sans-serif">
+
+  <!-- Fondo principal -->
+  <rect width="800" height="460" fill="#1a1a2e"/>
+
+  <!-- Título -->
+  <text x="400" y="36" text-anchor="middle" font-size="18" font-weight="700" fill="#FFFFFF">Arquitectura R2 — Semana 06</text>
+  <text x="400" y="56" text-anchor="middle" font-size="13" fill="#A0AEC0">Worker como proxy seguro para el Object Storage</text>
+
+  <!-- ======= CLIENTE ======= -->
+  <rect x="40" y="120" width="140" height="60" rx="8" fill="#16213e" stroke="#2D3748" stroke-width="1.5"/>
+  <text x="110" y="145" text-anchor="middle" font-size="13" font-weight="600" fill="#FFFFFF">Cliente</text>
+  <text x="110" y="163" text-anchor="middle" font-size="11" fill="#A0AEC0">Browser / curl</text>
+
+  <!-- ======= WORKER ======= -->
+  <rect x="300" y="100" width="200" height="100" rx="10" fill="#F38020" stroke="#F38020" stroke-width="2"/>
+  <text x="400" y="128" text-anchor="middle" font-size="14" font-weight="700" fill="#FFFFFF">Cloudflare Worker</text>
+  <text x="400" y="148" text-anchor="middle" font-size="12" fill="#FFFFFF">PUT /files/:key</text>
+  <text x="400" y="165" text-anchor="middle" font-size="12" fill="#FFFFFF">GET /files/:key</text>
+  <text x="400" y="182" text-anchor="middle" font-size="12" fill="#FFFFFF">GET /files</text>
+
+  <!-- ======= R2 BUCKET ======= -->
+  <rect x="580" y="90" width="160" height="80" rx="10" fill="#003682" stroke="#2D3748" stroke-width="1.5"/>
+  <text x="660" y="118" text-anchor="middle" font-size="14" font-weight="700" fill="#FFFFFF">R2 Bucket</text>
+  <text x="660" y="138" text-anchor="middle" font-size="11" fill="#A0AEC0">media-bucket</text>
+  <text x="660" y="156" text-anchor="middle" font-size="11" fill="#A0AEC0">put · get · delete · list</text>
+
+  <!-- ======= KV (TOKENS) ======= -->
+  <rect x="580" y="210" width="160" height="70" rx="10" fill="#003682" stroke="#2D3748" stroke-width="1.5"/>
+  <text x="660" y="238" text-anchor="middle" font-size="14" font-weight="700" fill="#FFFFFF">Workers KV</text>
+  <text x="660" y="258" text-anchor="middle" font-size="11" fill="#A0AEC0">TOKENS namespace</text>
+  <text x="660" y="273" text-anchor="middle" font-size="11" fill="#A0AEC0">token → key (TTL)</text>
+
+  <!-- ======= FLECHAS ======= -->
+
+  <!-- Cliente → Worker (request) -->
+  <line x1="180" y1="150" x2="298" y2="150" stroke="#F38020" stroke-width="2" marker-end="url(#arrow-orange)"/>
+  <text x="239" y="143" text-anchor="middle" font-size="11" fill="#F38020">HTTP Request</text>
+
+  <!-- Worker → R2 (put/get/delete) -->
+  <line x1="500" y1="130" x2="578" y2="130" stroke="#FFFFFF" stroke-width="1.5" marker-end="url(#arrow-white)"/>
+  <text x="539" y="122" text-anchor="middle" font-size="11" fill="#FFFFFF">put / get / delete</text>
+
+  <!-- Worker → KV (token validation) -->
+  <line x1="500" y1="180" x2="560" y2="240" stroke="#FFFFFF" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arrow-white)"/>
+  <text x="555" y="205" text-anchor="middle" font-size="10" fill="#A0AEC0">token:uuid → key</text>
+
+  <!-- R2 → Worker (response body) -->
+  <line x1="578" y1="145" x2="500" y2="155" stroke="#A0AEC0" stroke-width="1.5" marker-end="url(#arrow-gray)"/>
+  <text x="539" y="162" text-anchor="middle" font-size="11" fill="#A0AEC0">R2ObjectBody</text>
+
+  <!-- Worker → Cliente (response) -->
+  <line x1="300" y1="170" x2="182" y2="165" stroke="#A0AEC0" stroke-width="1.5" marker-end="url(#arrow-gray)"/>
+  <text x="239" y="184" text-anchor="middle" font-size="11" fill="#A0AEC0">HTTP Response</text>
+
+  <!-- ======= LEYENDA DE BINDING ======= -->
+  <rect x="40" y="320" width="340" height="100" rx="8" fill="#16213e" stroke="#2D3748" stroke-width="1.5"/>
+  <text x="60" y="344" font-size="12" font-weight="700" fill="#FFFFFF">Bindings del Worker</text>
+  <rect x="60" y="356" width="12" height="12" fill="#F38020"/>
+  <text x="80" y="367" font-size="11" fill="#A0AEC0">BUCKET — R2Bucket (media-bucket)</text>
+  <rect x="60" y="376" width="12" height="12" fill="#003682"/>
+  <text x="80" y="387" font-size="11" fill="#A0AEC0">TOKENS — KVNamespace (tokens TTL)</text>
+  <text x="60" y="408" font-size="11" fill="#A0AEC0">Ambos declarados en wrangler.jsonc</text>
+
+  <!-- ======= FLUJO DE TOKEN ======= -->
+  <rect x="420" y="320" width="320" height="100" rx="8" fill="#16213e" stroke="#2D3748" stroke-width="1.5"/>
+  <text x="440" y="344" font-size="12" font-weight="700" fill="#FFFFFF">Flujo de Token Temporal</text>
+  <text x="440" y="362" font-size="11" fill="#A0AEC0">1. POST /files/:key/token → genera UUID</text>
+  <text x="440" y="380" font-size="11" fill="#A0AEC0">2. KV.put(token, key, { expirationTtl })</text>
+  <text x="440" y="398" font-size="11" fill="#A0AEC0">3. GET /download/:token → KV.get(token)</text>
+  <text x="440" y="416" font-size="11" fill="#A0AEC0">4. BUCKET.get(key) → Response</text>
+
+  <!-- ======= DEFINICIÓN DE MARCADORES ======= -->
+  <defs>
+    <marker id="arrow-orange" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#F38020"/>
+    </marker>
+    <marker id="arrow-white" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#FFFFFF"/>
+    </marker>
+    <marker id="arrow-gray" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#A0AEC0"/>
+    </marker>
+  </defs>
+
+</svg>
