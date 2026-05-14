@@ -1,0 +1,21 @@
+{
+  "name": "queues-notifications-solution",
+  "main": "src/index.ts",
+  "compatibility_date": "2024-09-23",
+  "compatibility_flags": ["nodejs_compat_v2"],
+  "queues": {
+    "producers": [
+      {
+        "queue": "notifications-queue",
+        "binding": "NOTIFICATIONS_QUEUE"
+      }
+    ],
+    "consumers": [
+      {
+        "queue": "notifications-queue",
+        "max_batch_size": 5,
+        "max_batch_timeout": 3
+      }
+    ]
+  }
+}

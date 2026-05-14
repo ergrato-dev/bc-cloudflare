@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 440" width="820" height="440" font-family="Inter, Roboto, system-ui, sans-serif">
+
+  <!-- Fondo principal -->
+  <rect width="820" height="440" fill="#1a1a2e"/>
+
+  <!-- Título -->
+  <text x="410" y="34" text-anchor="middle" font-size="17" font-weight="700" fill="#FFFFFF">Flujo DLQ — Dead Letter Queue</text>
+  <text x="410" y="54" text-anchor="middle" font-size="12" fill="#A0AEC0">Ciclo de reintentos y destino de mensajes fallidos</text>
+
+  <!-- ======= PRODUCTOR ======= -->
+  <rect x="30" y="160" width="120" height="60" rx="8" fill="#F38020"/>
+  <text x="90" y="185" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">Productor</text>
+  <text x="90" y="203" text-anchor="middle" font-size="11" fill="#FFFFFF">send(event)</text>
+
+  <!-- ======= QUEUE PRINCIPAL ======= -->
+  <rect x="220" y="150" width="150" height="80" rx="10" fill="#16213e" stroke="#F38020" stroke-width="2"/>
+  <text x="295" y="178" text-anchor="middle" font-size="13" font-weight="700" fill="#F38020">orders-queue</text>
+  <line x1="236" y1="188" x2="354" y2="188" stroke="#2D3748" stroke-width="1"/>
+  <text x="295" y="206" text-anchor="middle" font-size="11" fill="#A0AEC0">max_retries: 3</text>
+  <text x="295" y="222" text-anchor="middle" font-size="11" fill="#A0AEC0">dead_letter_queue</text>
+
+  <!-- ======= CONSUMIDOR PRINCIPAL ======= -->
+  <rect x="450" y="150" width="160" height="80" rx="10" fill="#003682" stroke="#2D3748" stroke-width="1.5"/>
+  <text x="530" y="178" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">Consumidor</text>
+  <text x="530" y="196" text-anchor="middle" font-size="11" fill="#A0AEC0">queue(batch)</text>
+  <text x="530" y="214" text-anchor="middle" font-size="11" fill="#A0AEC0">lanza excepción</text>
+  <text x="530" y="228" text-anchor="middle" font-size="11" fill="#A0AEC0">msg.retry()</text>
+
+  <!-- ======= REINTENTO LOOP ======= -->
+  <path d="M 450 175 C 390 100 270 100 220 165" stroke="#A0AEC0" stroke-width="1.5" fill="none" stroke-dasharray="5,4" marker-end="url(#arr-d-g)"/>
+  <text x="335" y="92" text-anchor="middle" font-size="11" fill="#A0AEC0">reintento 1 · 2 · 3</text>
+
+  <!-- ======= DLQ ======= -->
+  <rect x="450" y="295" width="160" height="80" rx="10" fill="#16213e" stroke="#2D3748" stroke-width="1.5"/>
+  <text x="530" y="323" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">orders-dlq</text>
+  <line x1="466" y1="333" x2="594" y2="333" stroke="#2D3748" stroke-width="1"/>
+  <text x="530" y="351" text-anchor="middle" font-size="11" fill="#A0AEC0">Dead Letter Queue</text>
+  <text x="530" y="367" text-anchor="middle" font-size="11" fill="#A0AEC0">Queue normal</text>
+
+  <!-- ======= CONSUMIDOR DLQ ======= -->
+  <rect x="660" y="295" width="140" height="80" rx="10" fill="#003682" stroke="#2D3748" stroke-width="1.5"/>
+  <text x="730" y="318" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">Consumidor</text>
+  <text x="730" y="336" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">DLQ</text>
+  <text x="730" y="354" text-anchor="middle" font-size="11" fill="#A0AEC0">D1 / KV</text>
+  <text x="730" y="370" text-anchor="middle" font-size="11" fill="#A0AEC0">alerta / replay</text>
+
+  <!-- ======= FLECHAS ======= -->
+  <!-- Productor → Queue -->
+  <line x1="150" y1="190" x2="218" y2="190" stroke="#F38020" stroke-width="2" marker-end="url(#arr-d-o)"/>
+
+  <!-- Queue → Consumidor -->
+  <line x1="370" y1="190" x2="448" y2="190" stroke="#FFFFFF" stroke-width="2" marker-end="url(#arr-d-w)"/>
+  <text x="408" y="182" text-anchor="middle" font-size="10" fill="#FFFFFF">batch</text>
+
+  <!-- Consumidor → DLQ -->
+  <line x1="530" y1="232" x2="530" y2="293" stroke="#A0AEC0" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arr-d-g)"/>
+  <text x="557" y="268" font-size="10" fill="#A0AEC0">max_retries</text>
+  <text x="557" y="281" font-size="10" fill="#A0AEC0">agotados</text>
+
+  <!-- DLQ → Consumidor DLQ -->
+  <line x1="610" y1="335" x2="658" y2="335" stroke="#FFFFFF" stroke-width="2" marker-end="url(#arr-d-w)"/>
+
+  <!-- ======= NOTA CONFIG ======= -->
+  <rect x="30" y="290" width="380" height="130" rx="8" fill="#16213e" stroke="#2D3748" stroke-width="1.5"/>
+  <text x="50" y="314" font-size="12" font-weight="700" fill="#FFFFFF">Configuración en wrangler.jsonc</text>
+  <line x1="46" y1="324" x2="394" y2="324" stroke="#2D3748" stroke-width="1"/>
+  <text x="50" y="342" font-size="11" fill="#A0AEC0">"consumers": [{</text>
+  <text x="50" y="358" font-size="11" fill="#A0AEC0">  "queue": "orders-queue",</text>
+  <text x="50" y="374" font-size="11" fill="#F38020">  "max_retries": 3,</text>
+  <text x="50" y="390" font-size="11" fill="#F38020">  "dead_letter_queue": "orders-dlq"</text>
+  <text x="50" y="406" font-size="11" fill="#A0AEC0">}]</text>
+
+  <!-- ======= MARCADORES ======= -->
+  <defs>
+    <marker id="arr-d-o" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#F38020"/>
+    </marker>
+    <marker id="arr-d-w" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#FFFFFF"/>
+    </marker>
+    <marker id="arr-d-g" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#A0AEC0"/>
+    </marker>
+  </defs>
+
+</svg>

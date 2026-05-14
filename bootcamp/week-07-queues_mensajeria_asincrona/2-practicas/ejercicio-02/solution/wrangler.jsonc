@@ -1,0 +1,34 @@
+{
+  "name": "queues-dlq-solution",
+  "main": "src/index.ts",
+  "compatibility_date": "2024-09-23",
+  "compatibility_flags": ["nodejs_compat_v2"],
+  "queues": {
+    "producers": [
+      {
+        "queue": "jobs-queue",
+        "binding": "JOBS_QUEUE"
+      }
+    ],
+    "consumers": [
+      {
+        "queue": "jobs-queue",
+        "max_batch_size": 5,
+        "max_batch_timeout": 3,
+        "max_retries": 2,
+        "dead_letter_queue": "jobs-dlq"
+      },
+      {
+        "queue": "jobs-dlq",
+        "max_batch_size": 10,
+        "max_batch_timeout": 5
+      }
+    ]
+  },
+  "kv_namespaces": [
+    {
+      "binding": "FAILED_KV",
+      "id": "REPLACE_WITH_YOUR_KV_ID"
+    }
+  ]
+}
