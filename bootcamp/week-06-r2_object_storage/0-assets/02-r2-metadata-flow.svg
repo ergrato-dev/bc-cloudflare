@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="800" height="420" font-family="Inter, Roboto, system-ui, sans-serif">
+
+  <!-- Fondo principal -->
+  <rect width="800" height="420" fill="#1a1a2e"/>
+
+  <!-- Título -->
+  <text x="400" y="34" text-anchor="middle" font-size="17" font-weight="700" fill="#FFFFFF">Flujo de Metadata y Listado R2</text>
+  <text x="400" y="54" text-anchor="middle" font-size="12" fill="#A0AEC0">customMetadata · httpMetadata · list() con cursor</text>
+
+  <!-- ======= OBJETO R2 (esquema) ======= -->
+  <rect x="40" y="80" width="220" height="220" rx="10" fill="#16213e" stroke="#2D3748" stroke-width="1.5"/>
+  <text x="150" y="104" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">Objeto R2</text>
+  <line x1="56" y1="114" x2="244" y2="114" stroke="#2D3748" stroke-width="1"/>
+
+  <text x="56" y="132" font-size="11" font-weight="600" fill="#F38020">httpMetadata</text>
+  <text x="56" y="150" font-size="11" fill="#A0AEC0">  contentType: "image/webp"</text>
+  <text x="56" y="166" font-size="11" fill="#A0AEC0">  contentDisposition: "attachment"</text>
+  <text x="56" y="182" font-size="11" fill="#A0AEC0">  cacheControl: "max-age=86400"</text>
+
+  <text x="56" y="204" font-size="11" font-weight="600" fill="#F38020">customMetadata</text>
+  <text x="56" y="222" font-size="11" fill="#A0AEC0">  uploadedBy: "user-42"</text>
+  <text x="56" y="238" font-size="11" fill="#A0AEC0">  category: "invoice"</text>
+  <text x="56" y="254" font-size="11" fill="#A0AEC0">  docId: "1234"</text>
+
+  <line x1="56" y1="266" x2="244" y2="266" stroke="#2D3748" stroke-width="1"/>
+  <text x="56" y="284" font-size="11" fill="#A0AEC0">body: ReadableStream</text>
+
+  <!-- ======= WORKER ======= -->
+  <rect x="320" y="110" width="180" height="80" rx="10" fill="#F38020"/>
+  <text x="410" y="138" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">Worker</text>
+  <text x="410" y="158" text-anchor="middle" font-size="11" fill="#FFFFFF">BUCKET.list()</text>
+  <text x="410" y="174" text-anchor="middle" font-size="11" fill="#FFFFFF">BUCKET.put() + metadata</text>
+
+  <!-- ======= RESPUESTA LIST ======= -->
+  <rect x="320" y="240" width="180" height="120" rx="10" fill="#16213e" stroke="#2D3748" stroke-width="1.5"/>
+  <text x="410" y="263" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">Respuesta list()</text>
+  <line x1="336" y1="272" x2="484" y2="272" stroke="#2D3748" stroke-width="1"/>
+  <text x="336" y="290" font-size="11" fill="#A0AEC0">objects: [ R2Object[] ]</text>
+  <text x="336" y="308" font-size="11" fill="#A0AEC0">truncated: true | false</text>
+  <text x="336" y="326" font-size="11" fill="#A0AEC0">cursor: "abc..."</text>
+  <text x="336" y="344" font-size="11" fill="#A0AEC0">delimitedPrefixes: []</text>
+
+  <!-- ======= R2 BUCKET ======= -->
+  <rect x="580" y="100" width="160" height="90" rx="10" fill="#003682" stroke="#2D3748" stroke-width="1.5"/>
+  <text x="660" y="128" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">R2 Bucket</text>
+  <text x="660" y="148" text-anchor="middle" font-size="11" fill="#A0AEC0">photos/001.webp</text>
+  <text x="660" y="164" text-anchor="middle" font-size="11" fill="#A0AEC0">docs/invoice-1234.pdf</text>
+  <text x="660" y="180" text-anchor="middle" font-size="11" fill="#A0AEC0">...</text>
+
+  <!-- ======= FLECHAS ======= -->
+
+  <!-- Objeto → Worker (metadata context) -->
+  <line x1="260" y1="180" x2="318" y2="155" stroke="#A0AEC0" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arrow-gray2)"/>
+  <text x="287" y="162" text-anchor="middle" font-size="10" fill="#A0AEC0">metadata</text>
+
+  <!-- Worker → R2 -->
+  <line x1="500" y1="145" x2="578" y2="145" stroke="#FFFFFF" stroke-width="1.5" marker-end="url(#arrow-white2)"/>
+  <text x="539" y="138" text-anchor="middle" font-size="11" fill="#FFFFFF">list / put</text>
+
+  <!-- R2 → Worker -->
+  <line x1="578" y1="162" x2="500" y2="170" stroke="#A0AEC0" stroke-width="1.5" marker-end="url(#arrow-gray2)"/>
+  <text x="539" y="184" text-anchor="middle" font-size="11" fill="#A0AEC0">R2Object[]</text>
+
+  <!-- Worker → Respuesta list -->
+  <line x1="410" y1="190" x2="410" y2="238" stroke="#F38020" stroke-width="1.5" marker-end="url(#arrow-orange2)"/>
+  <text x="430" y="222" font-size="10" fill="#F38020">mapea</text>
+
+  <!-- Paginación nota -->
+  <rect x="580" y="240" width="180" height="90" rx="8" fill="#16213e" stroke="#2D3748" stroke-width="1.5"/>
+  <text x="670" y="263" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">Paginación</text>
+  <text x="596" y="283" font-size="11" fill="#A0AEC0">limit: 20 (por defecto)</text>
+  <text x="596" y="300" font-size="11" fill="#A0AEC0">cursor: próxima página</text>
+  <text x="596" y="317" font-size="11" fill="#A0AEC0">prefix: "photos/"</text>
+  <text x="596" y="334" font-size="11" fill="#A0AEC0">delimiter: "/" → carpetas</text>
+
+  <!-- Flecha respuesta list → paginación -->
+  <line x1="500" y1="300" x2="578" y2="295" stroke="#2D3748" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arrow-gray2)"/>
+
+  <!-- ======= MARCADORES ======= -->
+  <defs>
+    <marker id="arrow-orange2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#F38020"/>
+    </marker>
+    <marker id="arrow-white2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#FFFFFF"/>
+    </marker>
+    <marker id="arrow-gray2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#A0AEC0"/>
+    </marker>
+  </defs>
+
+</svg>

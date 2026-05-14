@@ -1,0 +1,20 @@
+{
+  "name": "proyecto-semana-06",
+  "main": "src/index.ts",
+  "compatibility_date": "2024-09-23",
+  "compatibility_flags": ["nodejs_compat_v2"],
+  "r2_buckets": [
+    {
+      "binding": "BUCKET",
+      "bucket_name": "media-bucket",
+      "preview_bucket_name": "media-bucket-dev"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "TOKENS",
+      "id": "REPLACE_WITH_YOUR_KV_ID",
+      "preview_id": "REPLACE_WITH_YOUR_KV_PREVIEW_ID"
+    }
+  ]
+}
