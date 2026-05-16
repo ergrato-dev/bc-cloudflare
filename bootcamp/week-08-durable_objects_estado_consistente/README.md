@@ -6,7 +6,10 @@
 
 ## 🎯 Objetivos
 
-> 🚧 Contenido en desarrollo.
+1. Entender el modelo de actor y por qué un Durable Object garantiza una sola instancia activa por ID
+2. Leer y escribir estado persistente con la Storage API (`get`, `put`, `list`, `delete`, `transaction`)
+3. Programar tareas futuras con Alarms y gestionar conexiones WebSocket con Hibernation API
+4. Declarar DO Facets para exponer múltiples comportamientos sobre el mismo almacenamiento
 
 ---
 

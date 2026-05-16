@@ -16,19 +16,34 @@
 
 ## 🧠 Conocimiento (30%)
 
-> 🚧 Criterios en desarrollo.
+| Criterio | Puntos |
+|----------|--------|
+| Explica el modelo de actor y qué garantiza `idFromName()` | 25 |
+| Describe la diferencia entre Storage API y Workers KV | 25 |
+| Explica para qué sirven los Alarms y cuántos puede tener un DO | 25 |
+| Describe qué problema resuelven los DO Facets | 25 |
 
 ---
 
 ## 💪 Desempeño (40%)
 
-> 🚧 Criterios en desarrollo.
+| Criterio | Puntos |
+|----------|--------|
+| DO con Storage API deployado — `GET` y `POST` responden correctamente | 25 |
+| `idFromName()` produce la misma instancia para el mismo nombre | 25 |
+| Alarm configura reset de ventana y `alarm()` ejecuta correctamente | 25 |
+| `wrangler.jsonc` incluye `durable_objects.bindings` y `migrations` | 25 |
 
 ---
 
 ## 📦 Producto (30%)
 
-> 🚧 Criterios en desarrollo.
+| Criterio | Puntos |
+|----------|--------|
+| DO adaptado al dominio asignado con estado representativo | 25 |
+| Storage API con transacción (`transaction()`) usada en al menos una ruta | 25 |
+| Alarm implementada para expiración o reset automático | 25 |
+| `wrangler tail` muestra logs del DO procesando peticiones reales | 25 |
 
 ---
 
