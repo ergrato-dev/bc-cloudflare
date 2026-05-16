@@ -1,0 +1,16 @@
+{
+  "name": "hyperdrive-products-starter",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-01-01",
+  "compatibility_flags": ["nodejs_compat_v2"],
+  "hyperdrive": [
+    {
+      "binding": "HYPERDRIVE",
+      // Reemplaza con el ID devuelto por:
+      // wrangler hyperdrive create products-db --connection-string="postgresql://..."
+      "id": "YOUR_HYPERDRIVE_ID",
+      // Solo para wrangler dev local — se ignora en producción
+      "localConnectionString": "postgresql://postgres:postgres@localhost:5432/bootcamp_week09"
+    }
+  ]
+}

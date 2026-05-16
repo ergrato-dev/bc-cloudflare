@@ -1,0 +1,15 @@
+{
+  "name": "hyperdrive-caching-starter",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-01-01",
+  "compatibility_flags": ["nodejs_compat_v2"],
+  "hyperdrive": [
+    {
+      "binding": "HYPERDRIVE",
+      "id": "YOUR_HYPERDRIVE_ID",
+      "localConnectionString": "postgresql://postgres:postgres@localhost:5432/bootcamp_week09",
+      // TODO: Añade el bloque "caching" con disabled: false, maxAge: 60, staleWhileRevalidate: 15
+      // Hint: ver documentación en 1-teoria/04-caching-de-queries.md
+    }
+  ]
+}
