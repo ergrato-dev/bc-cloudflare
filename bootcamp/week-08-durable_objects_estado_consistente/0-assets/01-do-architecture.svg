@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="420" viewBox="0 0 720 420">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#555577"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="720" height="420" fill="#1a1a2e"/>
+
+  <!-- Title -->
+  <text x="360" y="36" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="17" font-weight="600" fill="#ffffff">
+    Durable Objects — Arquitectura
+  </text>
+
+  <!-- ── CLIENT ── -->
+  <rect x="24" y="168" width="96" height="50" rx="8" fill="#16213e" stroke="#3a3a5a" stroke-width="1.5"/>
+  <text x="72" y="198" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#9090b0">Cliente</text>
+
+  <!-- Arrow: Client → Worker -->
+  <line x1="120" y1="193" x2="184" y2="193" stroke="#555577" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="152" y="184" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#666688">HTTP</text>
+
+  <!-- ── WORKER ── -->
+  <rect x="186" y="118" width="154" height="148" rx="10" fill="#2a1808" stroke="#F38020" stroke-width="2"/>
+  <text x="263" y="148" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="700" fill="#F38020">Worker</text>
+  <text x="263" y="166" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#c07030">HTTP Router (Hono)</text>
+  <line x1="206" y1="175" x2="320" y2="175" stroke="#F38020" stroke-opacity="0.3" stroke-width="1"/>
+  <text x="263" y="194" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#d08040">idFromName(name)</text>
+  <text x="263" y="212" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#d08040">namespace.get(id)</text>
+  <text x="263" y="230" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#d08040">stub.fetch(request)</text>
+  <text x="263" y="250" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#d08040">Zod validation</text>
+
+  <!-- Arrows: Worker → DO instances -->
+  <line x1="340" y1="163" x2="418" y2="110" stroke="#555577" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="340" y1="193" x2="418" y2="200" stroke="#555577" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="340" y1="224" x2="418" y2="295" stroke="#555577" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- ── DO INSTANCE 1 — Counter ── -->
+  <rect x="420" y="68" width="258" height="80" rx="10" fill="#001a40" stroke="#003682" stroke-width="2"/>
+  <text x="549" y="95" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="600" fill="#4488cc">
+    DO: counter-alice
+  </text>
+  <text x="549" y="114" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#336699">
+    storage.get/put · count: 42
+  </text>
+  <text x="549" y="132" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#336699">
+    Storage API · 1 instancia activa global
+  </text>
+
+  <!-- ── DO INSTANCE 2 — Rate limiter ── -->
+  <rect x="420" y="162" width="258" height="80" rx="10" fill="#001a40" stroke="#003682" stroke-width="2"/>
+  <text x="549" y="189" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="600" fill="#4488cc">
+    DO: ratelimit-bob
+  </text>
+  <text x="549" y="208" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#336699">
+    hits: 7 · resetAt: +53s
+  </text>
+  <text x="549" y="226" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#336699">
+    Alarm → reset automático de ventana
+  </text>
+
+  <!-- ── DO INSTANCE 3 — Room ── -->
+  <rect x="420" y="256" width="258" height="80" rx="10" fill="#001a40" stroke="#003682" stroke-width="2"/>
+  <text x="549" y="283" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="600" fill="#4488cc">
+    DO: room-lobby
+  </text>
+  <text x="549" y="302" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#336699">
+    WebSocket ×3 activos · Hibernation API
+  </text>
+  <text x="549" y="320" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#336699">
+    acceptWebSocket · webSocketMessage
+  </text>
+
+  <!-- ── Footer ── -->
+  <text x="360" y="372" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#505070">
+    Cada ID → exactamente 1 instancia activa en el mundo · Storage aislado por instancia
+  </text>
+  <text x="360" y="390" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#505070">
+    Actor Model: computación + estado en el mismo V8 Isolate
+  </text>
+</svg>

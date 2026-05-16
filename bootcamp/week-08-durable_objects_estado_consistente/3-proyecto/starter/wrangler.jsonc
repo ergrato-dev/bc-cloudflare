@@ -1,0 +1,14 @@
+{
+  "name": "do-resource-manager-starter",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-01-01",
+  "compatibility_flags": ["nodejs_compat_v2"],
+  "durable_objects": {
+    "bindings": [
+      { "name": "RESOURCE_DO", "class_name": "ResourceDO" }
+    ]
+  },
+  "migrations": [
+    { "tag": "v1", "new_classes": ["ResourceDO"] }
+  ]
+}

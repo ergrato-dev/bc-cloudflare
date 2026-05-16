@@ -1,0 +1,14 @@
+{
+  "name": "do-ratelimiter-starter",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-01-01",
+  "compatibility_flags": ["nodejs_compat_v2"],
+  "durable_objects": {
+    "bindings": [
+      { "name": "RATE_LIMITER_DO", "class_name": "RateLimiterDO" }
+    ]
+  },
+  "migrations": [
+    { "tag": "v1", "new_classes": ["RateLimiterDO"] }
+  ]
+}
