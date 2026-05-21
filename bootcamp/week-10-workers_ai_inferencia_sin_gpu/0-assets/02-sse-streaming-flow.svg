@@ -66,7 +66,7 @@
   <text x="855" y="120" fill="#6b7280" font-family="Inter, Roboto, sans-serif" font-size="9" text-anchor="middle">text/event-stream</text>
 
   <rect x="782" y="128" width="146" height="18" rx="3" fill="#252540"/>
-  <text x="855" y="141" fill="#34d399" font-family="Inter, Roboto, sans-serif" font-size="9" font-family="monospace" text-anchor="middle">data: {"response":"Hola"}</text>
+  <text x="855" y="141" fill="#34d399" font-family="Inter, Roboto, sans-serif" font-size="9" text-anchor="middle">data: {"response":"Hola"}</text>
 
   <rect x="782" y="152" width="146" height="18" rx="3" fill="#252540"/>
   <text x="855" y="165" fill="#34d399" font-family="Inter, Roboto, sans-serif" font-size="9" text-anchor="middle">data: {"response":" mundo"}</text>
