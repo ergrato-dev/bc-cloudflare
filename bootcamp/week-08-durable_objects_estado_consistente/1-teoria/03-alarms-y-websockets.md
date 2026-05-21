@@ -1,5 +1,9 @@
 # Alarms y WebSockets en Durable Objects
 
+> ![Alarm Timeline](../0-assets/03-do-alarm-timeline.svg)
+
+> ![WebSocket Lifecycle](../0-assets/02-do-websocket-lifecycle.svg)
+
 ## Objetivos
 
 - Programar tareas futuras con `storage.setAlarm()` e implementar `alarm()`

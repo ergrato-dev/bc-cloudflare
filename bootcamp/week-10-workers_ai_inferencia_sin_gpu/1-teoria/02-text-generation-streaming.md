@@ -1,6 +1,6 @@
 # Generación de Texto y Streaming con SSE
 
-> ![Arquitectura Workers AI](../0-assets/01-workers-ai-architecture.svg)
+> ![SSE Streaming Flow](../0-assets/02-sse-streaming-flow.svg)
 
 ## Objetivos
 

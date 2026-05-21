@@ -1,6 +1,6 @@
 # Embeddings de Texto — Representaciones Vectoriales
 
-> ![Arquitectura Workers AI](../0-assets/01-workers-ai-architecture.svg)
+> ![Embedding Space](../0-assets/03-embedding-similarity.svg)
 
 ## Objetivos
 
