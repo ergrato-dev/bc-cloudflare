@@ -1,0 +1,12 @@
+{
+  "name": "vectorize-crud-starter",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-01-01",
+  "compatibility_flags": ["nodejs_compat_v2"],
+  "vectorize": [
+    {
+      "binding": "VECTORIZE",
+      "index_name": "knowledge-base"
+    }
+  ]
+}
