@@ -16,19 +16,34 @@
 
 ## 🧠 Conocimiento (30%)
 
-> 🚧 Criterios en desarrollo.
+| Criterio | Puntos |
+|----------|--------|
+| Explica qué intercepta AI Gateway y qué ventajas aporta | 25 |
+| Describe cómo se activa la caché y qué parámetro controla el TTL | 25 |
+| Diferencia el endpoint específico del universal (fallback) | 25 |
+| Identifica al menos 2 proveedores soportados además de Workers AI | 25 |
 
 ---
 
 ## 💪 Desempeño (40%)
 
-> 🚧 Criterios en desarrollo.
+| Criterio | Puntos |
+|----------|--------|
+| Gateway creado en dashboard y gateway ID correcto en el código | 20 |
+| Workers AI llamado a través del gateway con opción `gateway` | 30 |
+| Caché funcional: segunda llamada idéntica devuelve `cf-aig-cache-status: HIT` | 30 |
+| Fallback multi-proveedor operativo con endpoint universal | 20 |
 
 ---
 
 ## 📦 Producto (30%)
 
-> 🚧 Criterios en desarrollo.
+| Criterio | Puntos |
+|----------|--------|
+| Worker desplegado con AI Gateway integrado | 25 |
+| Logs visibles en el dashboard de AI Gateway | 25 |
+| Rate limiting configurado en el gateway (plan Free o superior) | 25 |
+| Validación Zod en todos los endpoints de entrada | 25 |
 
 ---
 

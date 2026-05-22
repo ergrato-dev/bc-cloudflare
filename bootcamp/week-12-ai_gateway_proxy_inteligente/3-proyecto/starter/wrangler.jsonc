@@ -1,0 +1,18 @@
+{
+  "name": "ai-gateway-proxy-starter",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-01-01",
+  "compatibility_flags": ["nodejs_compat_v2"],
+  "ai": {
+    "binding": "AI"
+  },
+  "kv_namespaces": [
+    {
+      "binding": "STATS",
+      "id": "TU_KV_NAMESPACE_ID_AQUI"
+    }
+  ],
+  "vars": {
+    "GATEWAY_ID": "bc-gateway"
+  }
+}

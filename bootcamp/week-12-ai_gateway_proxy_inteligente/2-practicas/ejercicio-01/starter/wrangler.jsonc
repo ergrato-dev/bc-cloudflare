@@ -1,0 +1,12 @@
+{
+  "name": "ai-gateway-chatbot-starter",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-01-01",
+  "compatibility_flags": ["nodejs_compat_v2"],
+  "ai": {
+    "binding": "AI"
+  },
+  "vars": {
+    "GATEWAY_ID": "bc-gateway"
+  }
+}

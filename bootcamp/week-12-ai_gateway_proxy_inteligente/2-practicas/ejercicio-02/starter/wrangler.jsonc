@@ -1,0 +1,10 @@
+{
+  "name": "ai-gateway-fallback-starter",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-01-01",
+  "compatibility_flags": ["nodejs_compat_v2"],
+  "vars": {
+    "CF_ACCOUNT_ID": "tu-account-id-aqui",
+    "GATEWAY_ID": "bc-gateway"
+  }
+}
