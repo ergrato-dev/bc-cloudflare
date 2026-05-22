@@ -1,0 +1,28 @@
+{
+  "name": "rag-project-starter",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-01-01",
+  "compatibility_flags": ["nodejs_compat_v2"],
+  "ai": {
+    "binding": "AI"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "rag-docs",
+      "database_id": "TU_DATABASE_ID"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "BUCKET",
+      "bucket_name": "rag-documents"
+    }
+  ],
+  "vectorize": [
+    {
+      "binding": "INDEX",
+      "index_name": "rag-index"
+    }
+  ]
+}
