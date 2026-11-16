@@ -8,7 +8,6 @@ Recursos de referencia para instructores y aprendices.
 
 | Archivo | Descripción |
 |---------|-------------|
-| [dominios.md](dominios.md) | Catálogo de dominios de negocio asignables a aprendices |
 
 ---
 
